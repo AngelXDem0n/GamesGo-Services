@@ -228,7 +228,7 @@
     </ul>
   </div>
 
-  <!-- ACCOUNTS PANEL (same list as currency by your request, but i keep it as Accounts) -->
+  <!-- ACCOUNTS PANEL -->
   <div id="accounts" class="category-panel">
     <h2>🎮 Accounts for Sale</h2>
     <ul class="game-list">
@@ -355,16 +355,15 @@
     </ul>
   </div>
 
-  <!-- CONTACT SECTION -->
+  <!-- CONTACT SECTION (UPDATED) -->
   <div class="contact-section">
     <h3>📢 How to order</h3>
     <p>Click any category above → browse available games → contact us directly</p>
     <div class="contact-buttons">
-      <a href="https://discord.gg/YOURINVITE" target="_blank" class="contact-link">💬 Discord</a>
-      <a href="https://t.me/YOURTELEGRAM" target="_blank" class="contact-link">📱 Telegram</a>
-      <a href="mailto:boost@yourbusiness.com" class="contact-link">✉️ Email</a>
+      <a href="https://discord.gg/TsQMG9eJ" target="_blank" class="contact-link">💬 Discord</a>
+      <a href="https://wa.me/88223457" target="_blank" class="contact-link">📱 WhatsApp</a>
     </div>
-    <p style="margin-top: 1rem; font-size: 0.85rem;">✅ We offer the fastest delivery &amp; 24/7 support. All transactions are done via DM.</p>
+    <p style="margin-top: 1rem; font-size: 0.85rem;">✅ Fast delivery &amp; 24/7 support. DM us on Discord or WhatsApp to order.</p>
   </div>
 
   <footer>
@@ -387,13 +386,11 @@
     btn.addEventListener('click', () => {
       const cat = btn.getAttribute('data-cat');
       showCategory(cat);
-      // update active button style
       btns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     });
   });
 
-  // show first category by default
   showCategory('currency');
   btns[0].classList.add('active');
 </script>
