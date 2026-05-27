@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>BoostHub | Full Game Services Catalog</title>
+  <title>HaloBoost | Game Services Catalog</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -12,12 +12,14 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       background: #0a0c15;
       font-family: 'Inter', 'Segoe UI', sans-serif;
       color: #edf2f8;
       scroll-behavior: smooth;
     }
+
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -28,22 +30,26 @@
       background: #8b5cf6;
       border-radius: 10px;
     }
+
     .container {
       max-width: 1600px;
       margin: 0 auto;
       padding: 2rem 2rem 3rem;
     }
+
     @keyframes fadeSlideDown {
       0% { opacity: 0; transform: translateY(-30px); }
       100% { opacity: 1; transform: translateY(0); }
     }
+
     .hero {
       text-align: center;
       margin-bottom: 2.5rem;
       animation: fadeSlideDown 0.7s ease-out;
     }
+
     .hero h1 {
-      font-size: 3.2rem;
+      font-size: 3rem;
       font-weight: 800;
       background: linear-gradient(135deg, #FFFFFF, #c084fc, #8b5cf6);
       -webkit-background-clip: text;
@@ -51,11 +57,14 @@
       color: transparent;
       letter-spacing: -0.5px;
     }
+
     .hero p {
       color: #94a3b8;
       font-size: 1.1rem;
       margin-top: 0.5rem;
     }
+
+    /* Sticky Tabs */
     .category-tabs {
       display: flex;
       flex-wrap: wrap;
@@ -64,12 +73,13 @@
       margin-bottom: 2.5rem;
       position: sticky;
       top: 10px;
-      background: rgba(10,12,21,0.8);
+      background: rgba(10, 12, 21, 0.85);
       backdrop-filter: blur(12px);
       padding: 0.8rem;
       border-radius: 60px;
       z-index: 20;
     }
+
     .cat-tab {
       background: #1e293b;
       border: none;
@@ -85,25 +95,31 @@
       gap: 8px;
       font-family: 'Inter', sans-serif;
     }
+
     .cat-tab i {
       font-size: 1rem;
     }
+
     .cat-tab:hover {
       background: #334155;
       transform: translateY(-2px);
       color: white;
     }
+
     .cat-tab.active {
       background: #8b5cf6;
       color: white;
-      box-shadow: 0 6px 14px rgba(139,92,246,0.35);
+      box-shadow: 0 6px 14px rgba(139, 92, 246, 0.35);
     }
+
+    /* Game Cards Grid */
     .games-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 1.8rem;
       margin-top: 1rem;
     }
+
     .game-card {
       background: #0f172a;
       border-radius: 28px;
@@ -111,17 +127,20 @@
       overflow: hidden;
       transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       animation: cardReveal 0.45s forwards;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
+
     .game-card:hover {
       transform: translateY(-6px);
       border-color: #8b5cf6;
-      box-shadow: 0 20px 30px -12px rgba(139,92,246,0.25);
+      box-shadow: 0 20px 30px -12px rgba(139, 92, 246, 0.25);
     }
+
     @keyframes cardReveal {
       0% { opacity: 0; transform: translateY(18px); }
       100% { opacity: 1; transform: translateY(0); }
     }
+
     .card-header {
       padding: 1rem 1.2rem 0.6rem;
       border-bottom: 1px solid #1e2a44;
@@ -130,6 +149,7 @@
       gap: 12px;
       background: linear-gradient(145deg, #111827, #0b0f17);
     }
+
     .game-icon {
       width: 46px;
       height: 46px;
@@ -140,18 +160,22 @@
       justify-content: center;
       font-size: 1.8rem;
     }
+
     .game-name {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 700;
       letter-spacing: -0.2px;
     }
+
     .card-body {
       padding: 1.2rem 1.4rem 1.4rem;
     }
+
     .service-list {
       list-style: none;
       margin-bottom: 1rem;
     }
+
     .service-list li {
       font-size: 0.85rem;
       margin-bottom: 0.65rem;
@@ -161,12 +185,14 @@
       color: #cbd5f0;
       line-height: 1.35;
     }
+
     .service-list li i {
       color: #a78bfa;
       font-size: 0.7rem;
       width: 18px;
       margin-top: 3px;
     }
+
     .badge {
       background: #1e293b;
       display: inline-block;
@@ -177,6 +203,7 @@
       color: #b9c3da;
       margin-top: 6px;
     }
+
     .contact-dm {
       margin-top: 1rem;
       padding-top: 0.8rem;
@@ -185,17 +212,23 @@
       color: #7c8db0;
       text-align: center;
     }
+
+    /* Category Sections */
     .category-section {
       display: none;
       animation: fadeSection 0.35s ease;
     }
+
     .category-section.active-category {
       display: block;
     }
+
     @keyframes fadeSection {
-      from { opacity: 0; transform: translateX(8px);}
-      to { opacity: 1; transform: translateX(0);}
+      from { opacity: 0; transform: translateX(8px); }
+      to { opacity: 1; transform: translateX(0); }
     }
+
+    /* Contact Section */
     .contact-footer {
       background: #0f172a;
       border-radius: 36px;
@@ -204,6 +237,7 @@
       text-align: center;
       border: 1px solid #2d3a5e;
     }
+
     .contact-buttons {
       display: flex;
       gap: 1.2rem;
@@ -211,6 +245,7 @@
       flex-wrap: wrap;
       margin: 1.2rem 0 1rem;
     }
+
     .contact-link {
       background: #1e293b;
       padding: 0.7rem 1.8rem;
@@ -223,29 +258,41 @@
       align-items: center;
       gap: 10px;
     }
+
     .contact-link:hover {
       background: #8b5cf6;
       transform: scale(1.02);
     }
+
     footer {
       margin-top: 2rem;
       text-align: center;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       color: #475569;
     }
+
     @media (max-width: 760px) {
-      .container { padding: 1rem; }
-      .hero h1 { font-size: 2rem; }
-      .games-grid { grid-template-columns: 1fr; }
-      .cat-tab { padding: 0.45rem 1rem; font-size: 0.8rem; }
+      .container {
+        padding: 1rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .games-grid {
+        grid-template-columns: 1fr;
+      }
+      .cat-tab {
+        padding: 0.45rem 1rem;
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
 <body>
 <div class="container">
   <div class="hero">
-    <h1><i class="fas fa-bolt"></i> NEXUSBOOST</h1>
-    <p>All games • All items • 24/7 instant delivery</p>
+    <h1><i class="fas fa-bolt"></i> HALOBOOST</h1>
+    <p>Your complete game services catalog • Secure • 24/7 delivery</p>
   </div>
 
   <div class="category-tabs">
@@ -257,469 +304,496 @@
     <button class="cat-tab" data-cat="giftcards"><i class="fas fa-gift"></i> Gift Cards</button>
   </div>
 
-  <!-- All categories will be injected here -->
-  <div id="currency-section" class="category-section active-category"><div class="games-grid" id="currency-grid"></div></div>
-  <div id="accounts-section" class="category-section"><div class="games-grid" id="accounts-grid"></div></div>
-  <div id="topups-section" class="category-section"><div class="games-grid" id="topups-grid"></div></div>
-  <div id="items-section" class="category-section"><div class="games-grid" id="items-grid"></div></div>
-  <div id="boosting-section" class="category-section"><div class="games-grid" id="boosting-grid"></div></div>
-  <div id="giftcards-section" class="category-section"><div class="games-grid" id="giftcards-grid"></div></div>
+  <div id="currency-section" class="category-section active-category">
+    <div class="games-grid" id="currency-grid"></div>
+  </div>
+  <div id="accounts-section" class="category-section">
+    <div class="games-grid" id="accounts-grid"></div>
+  </div>
+  <div id="topups-section" class="category-section">
+    <div class="games-grid" id="topups-grid"></div>
+  </div>
+  <div id="items-section" class="category-section">
+    <div class="games-grid" id="items-grid"></div>
+  </div>
+  <div id="boosting-section" class="category-section">
+    <div class="games-grid" id="boosting-grid"></div>
+  </div>
+  <div id="giftcards-section" class="category-section">
+    <div class="games-grid" id="giftcards-grid"></div>
+  </div>
 
   <div class="contact-footer">
     <h3><i class="fas fa-headset"></i> How to Order</h3>
-    <p>Click any category → browse games and available items → contact us directly</p>
+    <p>Click any category → browse games and items → contact us directly</p>
     <div class="contact-buttons">
       <a href="https://discord.gg/TsQMG9eJ" target="_blank" class="contact-link"><i class="fab fa-discord"></i> Discord</a>
       <a href="https://wa.me/88223457" target="_blank" class="contact-link"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
-    <p style="font-size: 0.8rem;">✔ Fast delivery • Secure • 24/7 support</p>
+    <p style="font-size: 0.8rem;">✔ Instant delivery • Safe transactions • DM to place an order</p>
   </div>
-  <footer>© 2026 NexusBoost — catalog only. DM to order.</footer>
+  <footer>© 2025 HaloBoost — services catalog. Contact us to order.</footer>
 </div>
 
 <script>
-  // ---------- FULL GAME LISTS (exactly as originally provided) ----------
+  // --------------------------------------------------------------
+  // 1. CURRENCY GAMES (3+ items each)
+  // --------------------------------------------------------------
   const currencyGames = [
-    { name: "8 Ball Pool Coins", icon: "🎱", services: ["Coins (millions)", "Cash", "Legendary boxes"], note: "Instant transfer" },
-    { name: "Aion 2 Kinah", icon: "👾", services: ["Kinah", "High-end gear"], note: "Direct trade" },
-    { name: "Albion Online Silver", icon: "⚔️", services: ["Silver", "Gold", "Tomes"], note: "Market delivery" },
-    { name: "Arc Raiders Coins", icon: "🚀", services: ["Coins", "Premium currency"], note: "ID top-up" },
-    { name: "Black Desert Online Silver", icon: "🏜️", services: ["Silver", "Crons", "Pearls"], note: "Mail" },
-    { name: "Blade & Soul NEO Divine Gems", icon: "🗡️", services: ["Divine Gems", "Materials"], note: "Trade" },
-    { name: "Blade Ball Tokens", icon: "⚔️🎈", services: ["Tokens", "Spins"], note: "Game transfer" },
-    { name: "Creatures of Sonaria Mushrooms", icon: "🦖", services: ["Mushrooms", "Specs"], note: "Realm trade" },
-    { name: "Dark and Darker Gold", icon: "🕯️", services: ["Gold", "Keys"], note: "Market" },
-    { name: "DC Universe Online Cash", icon: "🦸", services: ["Cash", "Source Marks"], note: "Mail" },
-    { name: "Delta Force Tekniq Alloy", icon: "🎯", services: ["Alloy", "Weapon parts"], note: "Trade" },
-    { name: "Diablo 4 Gold", icon: "😈", services: ["Gold", "Boss mats"], note: "Safe" },
-    { name: "Digimon Super Rumble Bits", icon: "🐉", services: ["Bits", "Chips"], note: "Gift" },
-    { name: "Dofus Kamas", icon: "🐉", services: ["Kamas", "Dofus"], note: "Bank" },
-    { name: "DonutSMP Money", icon: "🍩", services: ["Coins", "Items"], note: "Server trade" },
-    { name: "Dragon Adventures Coins", icon: "🐲", services: ["Coins", "Pots"], note: "Auction" },
-    { name: "Dreadmyst Gold", icon: "🌑", services: ["Gold", "Chests"], note: "Merchant" },
-    { name: "Dune: Awakening Solaris", icon: "🏜️", services: ["Solaris", "Spice"], note: "Faction trade" },
-    { name: "EA Sports FC Coins", icon: "⚽", services: ["FC Coins", "Packs"], note: "Transfer market" },
-    { name: "Elden Ring Runes", icon: "🌙", services: ["Runes", "Lord Runes"], note: "Drop trade" },
-    { name: "Elder Scrolls Online Gold", icon: "🏹", services: ["Gold", "Crowns"], note: "Guild" },
-    { name: "Escape From Tarkov Roubles", icon: "🔫", services: ["Roubles", "Keycards"], note: "Flea" },
-    { name: "Escape Tsunami For Brainrots Trade Tokens", icon: "🌊", services: ["Tokens", "Items"], note: "In-game" },
-    { name: "EVE Echoes ISK", icon: "🚀", services: ["ISK", "Ships"], note: "Contract" },
-    { name: "EVE Online ISK", icon: "🛸", services: ["ISK", "PLEX"], note: "Trade" },
-    { name: "Fallout 76 Caps", icon: "☢️", services: ["Caps", "Legendaries"], note: "Vendor" },
-    { name: "Farever Gold", icon: "✨", services: ["Gold", "Chests"], note: "Direct" },
-    { name: "Final Fantasy XI Gil", icon: "⚔️", services: ["Gil", "Rare items"], note: "AH" },
-    { name: "Final Fantasy XIV Gil", icon: "🌟", services: ["Gil", "Materia"], note: "Market board" },
-    { name: "Fisch Money", icon: "🐟", services: ["E$", "C$"], note: "Gift" },
-    { name: "Fix It Up Money", icon: "🔧", services: ["Coins", "Tokens"], note: "Trade" },
-    { name: "Forza Horizon 5 Credits", icon: "🏎️", services: ["Credits", "Cars"], note: "Auction" },
-    { name: "Forza Horizon 6 Credits", icon: "🏎️", services: ["Credits", "Wheelspins"], note: "Gift" },
-    { name: "Grow a Garden Tokens", icon: "🌱", services: ["Tokens", "Seeds"], note: "Trade" },
-    { name: "Growtopia Locks", icon: "🌳", services: ["World Locks", "Diamond Locks"], note: "Vending" },
-    { name: "Guild Wars 2 Gold", icon: "🗡️", services: ["Gold", "Mystic Coins"], note: "Mail" },
-    { name: "Knight Online Gold Bars", icon: "🛡️", services: ["Gold Bars", "Coins"], note: "Merchant" },
-    { name: "Last Epoch Gold", icon: "💀", services: ["Gold", "Crafting mats"], note: "Trade" },
-    { name: "Lost Ark Gold", icon: "⚓", services: ["Gold", "Shards"], note: "Market" },
-    { name: "Madden NFL Coins", icon: "🏈", services: ["Coins", "Platinum packs"], note: "Auction" },
-    { name: "MapleStory Mesos", icon: "🍁", services: ["Mesos", "Cubes"], note: "Scania" },
-    { name: "Metin2 Won", icon: "🐉", services: ["Yang", "Won"], note: "Item shop" },
-    { name: "Minecraft Hypixel Coins", icon: "⛏️", services: ["Skyblock Coins", "Essence"], note: "AH" },
-    { name: "MLB: The Show Stubs", icon: "⚾", services: ["Stubs", "Packs"], note: "Marketplace" },
-    { name: "Mortal Online 2 Gold", icon: "⚔️", services: ["Gold", "Materials"], note: "Bank" },
-    { name: "New World Coins", icon: "🌎", services: ["Coins", "Gear"], note: "TP" },
-    { name: "Old School RuneScape Gold", icon: "🪙", services: ["OSRS GP", "Bonds"], note: "Trade" },
-    { name: "Path of Exile 2 Currency", icon: "💀", services: ["Divine", "Chaos"], note: "Safe trade" },
-    { name: "Path of Exile Currency", icon: "💀", services: ["Exalted", "Mirrors"], note: "Bulk" },
-    { name: "Pet Simulator 99 Gems", icon: "🐾", services: ["Gems", "Huge pets"], note: "Mail" },
-    { name: "Pets Go Diamonds", icon: "🐕", services: ["Diamonds", "Shiny"], note: "Trade" },
-    { name: "Pixel Worlds Byte Coins", icon: "🎨", services: ["Byte Coins", "Locks"], note: "Market" },
-    { name: "Pokemon Go Stardust", icon: "✨", services: ["Stardust", "Candies"], note: "Trade" },
-    { name: "Rise Online Gold Bars", icon: "⚜️", services: ["Gold Bars", "Items"], note: "Merchant" },
-    { name: "Roblox Robux", icon: "🤖", services: ["Robux", "Limiteds"], note: "Group" },
-    { name: "Royale High Diamonds", icon: "👑", services: ["Diamonds", "Halos"], note: "Hub" },
-    { name: "RuneScape 3 Gold", icon: "⚔️", services: ["RS3 Gold", "Bonds"], note: "Trade" },
-    { name: "Runescape Bonds", icon: "📜", services: ["Bonds", "Membership"], note: "GE" },
-    { name: "Standoff 2 Gold", icon: "🔫", services: ["Gold", "Skins"], note: "Gift" },
-    { name: "Star Citizen aUEC", icon: "🛸", services: ["aUEC", "Ships"], note: "In-game" },
-    { name: "SWTOR Credits", icon: "✨", services: ["Credits", "Cartel"], note: "Mail" },
-    { name: "Tap Simulator Tokens", icon: "👆", services: ["Tokens", "Rebirths"], note: "Gift" },
-    { name: "Temtem Pansun", icon: "🐧", services: ["Pansun", "Lumas"], note: "Trade" },
-    { name: "The Quinfall Gold Coins", icon: "🏰", services: ["Gold Coins", "Premium"], note: "Market" },
-    { name: "Throne and Liberty Lucent", icon: "👑", services: ["Lucent", "Sollant"], note: "AH" },
-    { name: "Tibia Gold", icon: "🗡️", services: ["Gold", "TC"], note: "Market" },
-    { name: "Toilet Tower Defense Gems", icon: "🚽", services: ["Gems", "Units"], note: "Roblox" },
-    { name: "Torchlight: Infinite Flame Elementium", icon: "🔥", services: ["Flame", "Legendaries"], note: "Trade" },
-    { name: "Trove Flux", icon: "🎮", services: ["Flux", "Dragons"], note: "Market" },
-    { name: "Warframe Platinum", icon: "🌀", services: ["Platinum", "Prime sets"], note: "Dojo" },
-    { name: "World of Warcraft Gold", icon: "🛡️", services: ["Gold (Retail)", "BoE"], note: "Trade" },
-    { name: "WoW Classic Era Gold", icon: "🛡️", services: ["Classic Gold", "Mats"], note: "Neutral AH" },
-    { name: "WoW Mists of Pandaria Gold", icon: "🐉", services: ["MoP Gold", "Mounts"], note: "Trade" }
+    { name: "8 Ball Pool Coins", icon: "🎱", services: ["Pool Coins (millions)", "Cash / Legendary Boxes", "Instant top-up"], note: "ID top-up" },
+    { name: "Aion 2 Kinah", icon: "👾", services: ["Kinah", "High-end gear", "Enchantment Stones"], note: "Direct trade" },
+    { name: "Albion Online Silver", icon: "⚔️", services: ["Silver", "Gold", "Tomes of Insight"], note: "Market delivery" },
+    { name: "Arc Raiders Coins", icon: "🚀", services: ["Coins", "Premium currency packs", "Blueprints"], note: "ID top-up" },
+    { name: "Black Desert Online Silver", icon: "🏜️", services: ["Silver", "Crons Stones", "Pearl Items"], note: "Mail delivery" },
+    { name: "Blade & Soul NEO Divine Gems", icon: "🗡️", services: ["Divine Gems", "Materials", "Costume boxes"], note: "In-game trade" },
+    { name: "Blade Ball Tokens", icon: "⚔️🎈", services: ["Tokens", "Spins", "Rare emotes"], note: "Game transfer" },
+    { name: "Creatures of Sonaria Mushrooms", icon: "🦖", services: ["Mushrooms", "Specs", "Plushies"], note: "Realm trade" },
+    { name: "Dark and Darker Gold", icon: "🕯️", services: ["Gold", "Keys (Golden/Skeleton)", "Treasure bags"], note: "Market trade" },
+    { name: "DC Universe Online Cash", icon: "🦸", services: ["Cash", "Source Marks", "Time Capsules"], note: "Mail delivery" },
+    { name: "Delta Force Tekniq Alloy", icon: "🎯", services: ["Alloy", "Weapon parts", "Operator skins"], note: "In-game trade" },
+    { name: "Diablo 4 Gold", icon: "😈", services: ["Gold", "Boss Summon Mats (Duriel)", "Runes"], note: "Safe trade" },
+    { name: "Digimon Super Rumble Bits", icon: "🐉", services: ["Bits", "Chips", "Training items"], note: "Gift delivery" },
+    { name: "Dofus Kamas", icon: "🐉", services: ["Kamas", "Dofus eggs", "Set items"], note: "Bank transfer" },
+    { name: "DonutSMP Money", icon: "🍩", services: ["Coins", "Pets", "Donor items"], note: "Server trade" },
+    { name: "Dragon Adventures Coins", icon: "🐲", services: ["Coins", "Potion packs", "Eggs"], note: "Auction house" },
+    { name: "Dreadmyst Gold", icon: "🌑", services: ["Gold", "Chests", "Mystic gear"], note: "Merchant trade" },
+    { name: "Dune: Awakening Solaris", icon: "🏜️", services: ["Solaris", "Spice", "Blueprint fragments"], note: "Faction trade" },
+    { name: "EA Sports FC Coins", icon: "⚽", services: ["FC Coins", "Packs", "Player cards"], note: "Transfer market" },
+    { name: "Elden Ring Runes", icon: "🌙", services: ["Runes", "Lord Runes", "Weapons/Armor"], note: "Drop trade" },
+    { name: "Elder Scrolls Online Gold", icon: "🏹", services: ["Gold", "Crowns", "Motifs"], note: "Guild trader" },
+    { name: "Escape From Tarkov Roubles", icon: "🔫", services: ["Roubles", "Keycards", "Containers"], note: "Flea market" },
+    { name: "Escape Tsunami For Brainrots Trade Tokens", icon: "🌊", services: ["Tokens", "Rare items", "Boosts"], note: "In-game trade" },
+    { name: "EVE Echoes ISK", icon: "🚀", services: ["ISK", "Ships", "Skill Injectors"], note: "Contract trade" },
+    { name: "EVE Online ISK", icon: "🛸", services: ["ISK", "PLEX", "Capital Ships"], note: "Trade window" },
+    { name: "Fallout 76 Caps", icon: "☢️", services: ["Caps", "Legendaries", "Plans"], note: "Vendor trade" },
+    { name: "Farever Gold", icon: "✨", services: ["Gold", "Chests", "Mounts"], note: "Direct trade" },
+    { name: "Final Fantasy XI Gil", icon: "⚔️", services: ["Gil", "Rare items", "Mats"], note: "Auction House" },
+    { name: "Final Fantasy XIV Gil", icon: "🌟", services: ["Gil", "Materia", "Crafted Gear"], note: "Market board" },
+    { name: "Fisch Money", icon: "🐟", services: ["E$", "C$", "Rare rods"], note: "Gift delivery" },
+    { name: "Fix It Up Money", icon: "🔧", services: ["Coins", "Tokens", "Upgrade parts"], note: "Game trade" },
+    { name: "Forza Horizon 5 Credits", icon: "🏎️", services: ["Credits", "Cars", "Wheelspins"], note: "Auction house" },
+    { name: "Forza Horizon 6 Credits", icon: "🏎️", services: ["Credits", "Rare cars", "Mastery points"], note: "Gift delivery" },
+    { name: "Grow a Garden Tokens", icon: "🌱", services: ["Tokens", "Seeds", "Boosters"], note: "Trade system" },
+    { name: "Growtopia Locks", icon: "🌳", services: ["World Locks", "Diamond Locks", "Rare seeds"], note: "Vending machine" },
+    { name: "Guild Wars 2 Gold", icon: "🗡️", services: ["Gold", "Mystic Coins", "Legendaries"], note: "Mail delivery" },
+    { name: "Knight Online Gold Bars", icon: "🛡️", services: ["Gold Bars", "Coins", "Uniques"], note: "Merchant trade" },
+    { name: "Last Epoch Gold", icon: "💀", services: ["Gold", "Crafting mats", "Unique items"], note: "Trade system" },
+    { name: "Lost Ark Gold", icon: "⚓", services: ["Gold", "Shards", "Leapstones"], note: "Market trade" },
+    { name: "Madden NFL Coins", icon: "🏈", services: ["Coins", "Platinum Packs", "Player cards"], note: "Auction house" },
+    { name: "MapleStory Mesos", icon: "🍁", services: ["Mesos", "Cubes", "Nodestones"], note: "Server trade" },
+    { name: "Metin2 Won", icon: "🐉", services: ["Yang", "Won", "Dragon Coins"], note: "Item shop" },
+    { name: "Minecraft Hypixel Coins", icon: "⛏️", services: ["Skyblock Coins", "Essence", "Dungeon items"], note: "Auction house" },
+    { name: "MLB: The Show Stubs", icon: "⚾", services: ["Stubs", "Packs", "Player cards"], note: "Marketplace" },
+    { name: "Mortal Online 2 Gold", icon: "⚔️", services: ["Gold", "Materials", "Gear"], note: "Bank trade" },
+    { name: "New World Coins", icon: "🌎", services: ["Coins", "High GS Gear", "Rare resources"], note: "Trading post" },
+    { name: "Old School RuneScape Gold", icon: "🪙", services: ["OSRS GP", "Bonds", "High-level gear"], note: "Trade screen" },
+    { name: "Path of Exile 2 Currency", icon: "💀", services: ["Divine Orbs", "Chaos Orbs", "Exalted Orbs"], note: "Safe trade" },
+    { name: "Path of Exile Currency", icon: "💀", services: ["Divine Orbs", "Exalted Orbs", "Scarabs"], note: "Bulk trade" },
+    { name: "Pet Simulator 99 Gems", icon: "🐾", services: ["Gems", "Huge pets", "Exclusive eggs"], note: "Mail delivery" },
+    { name: "Pets Go Diamonds", icon: "🐕", services: ["Diamonds", "Shiny pets", "Boosters"], note: "Direct trade" },
+    { name: "Pixel Worlds Byte Coins", icon: "🎨", services: ["Byte Coins", "World Locks", "Rare seeds"], note: "Market trade" },
+    { name: "Pokémon Go Stardust", icon: "✨", services: ["Stardust", "Rare Candies", "Shiny Pokémon"], note: "Trade system" },
+    { name: "Rise Online Gold Bars", icon: "⚜️", services: ["Gold Bars", "Premium items", "Gear"], note: "Merchant trade" },
+    { name: "Roblox Robux", icon: "🤖", services: ["Robux", "Limiteds", "Gamepasses"], note: "Group payout" },
+    { name: "Royale High Diamonds", icon: "👑", services: ["Diamonds", "Halos", "Rare wings"], note: "Trading hub" },
+    { name: "RuneScape 3 Gold", icon: "⚔️", services: ["RS3 Gold", "Bonds", "Masterwork gear"], note: "Trade window" },
+    { name: "Standoff 2 Gold", icon: "🔫", services: ["Gold", "Premium skins", "Battle pass"], note: "Gift inventory" },
+    { name: "Star Citizen aUEC", icon: "🛸", services: ["aUEC", "Ships", "Weapons"], note: "In-game credit" },
+    { name: "SWTOR Credits", icon: "✨", services: ["Credits", "Cartel items", "Augments"], note: "Mail delivery" },
+    { name: "Tap Simulator Tokens", icon: "👆", services: ["Tokens", "Rebirths", "Best pets"], note: "Gift system" },
+    { name: "Temtem Pansun", icon: "🐧", services: ["Pansun", "Lumas", "Clover items"], note: "Trade window" },
+    { name: "The Quinfall Gold Coins", icon: "🏰", services: ["Gold Coins", "Premium", "Gear"], note: "Market trade" },
+    { name: "Throne and Liberty Lucent", icon: "👑", services: ["Lucent", "Sollant", "Traits"], note: "Auction House" },
+    { name: "Tibia Gold", icon: "🗡️", services: ["Gold", "Tibia Coins", "Rare items"], note: "Market trade" },
+    { name: "Toilet Tower Defense Gems", icon: "🚽", services: ["Gems", "Exclusive units", "Crates"], note: "Roblox trade" },
+    { name: "Torchlight: Infinite Flame Elementium", icon: "🔥", services: ["Flame Elementium", "Legendaries", "Crafting mats"], note: "Trade system" },
+    { name: "Trove Flux", icon: "🎮", services: ["Flux", "Dragon Coins", "Ganda mounts"], note: "Marketplace" },
+    { name: "Warframe Platinum", icon: "🌀", services: ["Platinum", "Prime sets", "Arcanes"], note: "Trade kiosk" },
+    { name: "World of Warcraft Gold", icon: "🛡️", services: ["Gold", "BoE epics", "Mounts"], note: "Trade window" },
+    { name: "WoW Classic Era Gold", icon: "🛡️", services: ["Classic Gold", "Materials", "Gear"], note: "Neutral AH" },
+    { name: "WoW Mists of Pandaria Gold", icon: "🐉", services: ["MoP Gold", "Mounts", "Gear"], note: "Trade system" }
   ];
 
+  // --------------------------------------------------------------
+  // 2. ACCOUNTS GAMES (3+ items each)
+  // --------------------------------------------------------------
   const accountsGames = [
-    { name: "8 Ball Pool", icon: "🎱", services: ["High level accounts", "Legendary cues"], note: "Email access" },
-    { name: "Aion 2", icon: "👾", services: ["Endgame characters"], note: "Full transfer" },
-    { name: "Albion Online", icon: "⚔️", services: ["High spec accounts"], note: "Email change" },
-    { name: "Arc Raiders", icon: "🚀", services: ["Beta access accounts"], note: "Rare" },
-    { name: "Black Desert Online", icon: "🏜️", services: ["High GS accounts", "PEN gear"], note: "Family name" },
-    { name: "Blade & Soul NEO", icon: "🗡️", services: ["Max level", "Divine Gems"], note: "Secure" },
-    { name: "Blade Ball", icon: "⚔️", services: ["Rare tokens accounts"], note: "Roblox" },
-    { name: "Creatures of Sonaria", icon: "🦖", services: ["Mushroom rich accounts"], note: "Realm" },
-    { name: "Dark and Darker", icon: "🕯️", services: ["High level characters"], note: "Full access" },
-    { name: "DC Universe Online", icon: "🦸", services: ["CR 400+ accounts"], note: "Email" },
-    { name: "Delta Force", icon: "🎯", services: ["Ranked accounts"], note: "Transfer" },
-    { name: "Diablo 4", icon: "😈", services: ["Max level", "Uber uniques"], note: "Battle.net" },
-    { name: "Digimon Super Rumble", icon: "🐉", services: ["High rank accounts"], note: "ID" },
-    { name: "Dofus", icon: "🐉", services: ["Multi-char accounts"], note: "Ankama" },
-    { name: "DonutSMP", icon: "🍩", services: ["Donor accounts"], note: "Server" },
-    { name: "Dragon Adventures", icon: "🐲", services: ["Rare pet accounts"], note: "Roblox" },
-    { name: "Dreadmyst", icon: "🌑", services: ["Gold stocked"], note: "Full" },
-    { name: "Dune: Awakening", icon: "🏜️", services: ["Early access"], note: "Steam" },
-    { name: "EA Sports FC", icon: "⚽", services: ["Ultimate Team accounts"], note: "EA" },
-    { name: "Elden Ring", icon: "🌙", services: ["Max level", "All items"], note: "Steam" },
-    { name: "Elder Scrolls Online", icon: "🏹", services: ["CP 2000+", "Crowns"], note: "Email" },
-    { name: "Escape From Tarkov", icon: "🔫", services: ["Kappa", "Max traders"], note: "Full" },
-    { name: "Escape Tsunami", icon: "🌊", services: ["High token accounts"], note: "Roblox" },
-    { name: "EVE Echoes", icon: "🚀", services: ["Capital pilots"], note: "Omega" },
-    { name: "EVE Online", icon: "🛸", services: ["Titan pilots"], note: "Character bazaar" },
-    { name: "Fallout 76", icon: "☢️", services: ["High level", "Legacies"], note: "Beth" },
-    { name: "Farever", icon: "✨", services: ["Rare items accounts"], note: "Secure" },
-    { name: "Final Fantasy XI", icon: "⚔️", services: ["Mythic accounts"], note: "Square" },
-    { name: "Final Fantasy XIV", icon: "🌟", services: ["Omni 90", "Gil rich"], note: "Mogstation" },
-    { name: "Fisch", icon: "🐟", services: ["C$ rich accounts"], note: "Roblox" },
-    { name: "Fix It Up", icon: "🔧", services: ["High level"], note: "Game" },
-    { name: "Forza Horizon 5", icon: "🏎️", services: ["Rare car accounts"], note: "Microsoft" },
-    { name: "Forza Horizon 6", icon: "🏎️", services: ["Max credits"], note: "MS" },
-    { name: "Grow a Garden", icon: "🌱", services: ["Token rich"], note: "Roblox" },
-    { name: "Growtopia", icon: "🌳", services: ["BGL accounts"], note: "Email" },
-    { name: "Guild Wars 2", icon: "🗡️", services: ["Legendary equipped"], note: "ArenaNet" },
-    { name: "Knight Online", icon: "🛡️", services: ["+10 items accounts"], note: "NTT" },
-    { name: "Last Epoch", icon: "💀", services: ["Level 100"], note: "Steam" },
-    { name: "Lost Ark", icon: "⚓", services: ["1580+ ilvl"], note: "Amazon" },
-    { name: "Madden NFL", icon: "🏈", services: ["MUT god squads"], note: "EA" },
-    { name: "MapleStory", icon: "🍁", services: ["Level 250+"], note: "Nexon" },
-    { name: "Metin2", icon: "🐉", services: ["High level", "Dragon armors"], note: "Gameforge" },
-    { name: "Minecraft Hypixel", icon: "⛏️", services: ["Skyblock endgame"], note: "Microsoft" },
-    { name: "MLB The Show", icon: "⚾", services: ["Diamond Dynasty"], note: "PSN" },
-    { name: "Mortal Online 2", icon: "⚔️", services: ["Max skills"], note: "Steam" },
-    { name: "New World", icon: "🌎", services: ["600+ expertise"], note: "Amazon" },
-    { name: "Old School RuneScape", icon: "🪙", services: ["Maxed mains", "Pures"], note: "Jagex" },
-    { name: "Path of Exile 2", icon: "💀", services: ["High level"], note: "GGG" },
-    { name: "Path of Exile", icon: "💀", services: ["Mirror ready"], note: "Email" },
-    { name: "Pet Simulator 99", icon: "🐾", services: ["Huge pet accounts"], note: "Roblox" },
-    { name: "Pets Go", icon: "🐕", services: ["Diamond rich"], note: "Roblox" },
-    { name: "Pixel Worlds", icon: "🎨", services: ["Byte coin rich"], note: "Game" },
-    { name: "Pokemon Go", icon: "✨", services: ["Level 50", "Shiny mythicals"], note: "PTC" },
-    { name: "Rise Online", icon: "⚜️", services: ["High geared"], note: "Mail" },
-    { name: "Roblox", icon: "🤖", services: ["Limiteds accounts"], note: "Full" },
-    { name: "Royale High", icon: "👑", services: ["Halo owners"], note: "Roblox" },
-    { name: "RuneScape 3", icon: "⚔️", services: ["Max cape", "Masterwork"], note: "Jagex" },
-    { name: "Standoff 2", icon: "🔫", services: ["Rare skin accounts"], note: "Mail" },
-    { name: "Star Citizen", icon: "🛸", services: ["Fleet accounts"], note: "RSI" },
-    { name: "SWTOR", icon: "✨", services: ["Legendary status"], note: "EA" },
-    { name: "Tap Simulator", icon: "👆", services: ["High rebirth"], note: "Roblox" },
-    { name: "Temtem", icon: "🐧", services: ["Competitive teams"], note: "Humble" },
-    { name: "The Quinfall", icon: "🏰", services: ["High level"], note: "Steam" },
-    { name: "Throne and Liberty", icon: "👑", services: ["High gear score"], note: "AGS" },
-    { name: "Tibia", icon: "🗡️", services: ["High level"], note: "CipSoft" },
-    { name: "Toilet Tower Defense", icon: "🚽", services: ["Rare units"], note: "Roblox" },
-    { name: "Torchlight Infinite", icon: "🔥", services: ["Endgame"], note: "Email" },
-    { name: "Trove", icon: "🎮", services: ["High mastery"], note: "Gamigo" },
-    { name: "Warframe", icon: "🌀", services: ["MR 30+"], note: "DE" },
-    { name: "World of Warcraft", icon: "🛡️", services: ["Gladiator", "Mythic geared"], note: "Battle.net" },
-    { name: "WoW Classic Era", icon: "🛡️", services: ["Naxx geared"], note: "BNet" },
-    { name: "WoW Mists of Pandaria", icon: "🐉", services: ["MoP remix"], note: "Transfer" }
+    { name: "8 Ball Pool", icon: "🎱", services: ["High level accounts", "Legendary cues", "High win rate"], note: "Email access" },
+    { name: "Aion 2", icon: "👾", services: ["Endgame characters", "High Kinah", "Rare gear"], note: "Full transfer" },
+    { name: "Albion Online", icon: "⚔️", services: ["High spec accounts", "Premium status", "8.3 gear"], note: "Email change" },
+    { name: "Arc Raiders", icon: "🚀", services: ["Beta access accounts", "Rare skins", "High level"], note: "Rare accounts" },
+    { name: "Black Desert Online", icon: "🏜️", services: ["High GS accounts", "PEN gear", "Dream horses"], note: "Family name" },
+    { name: "Blade & Soul NEO", icon: "🗡️", services: ["Max level", "Divine Gems", "Costumes"], note: "Secure transfer" },
+    { name: "Blade Ball", icon: "⚔️", services: ["Rare token accounts", "High wins", "Exclusive items"], note: "Roblox" },
+    { name: "Creatures of Sonaria", icon: "🦖", services: ["Mushroom rich accounts", "Rare specs", "Plushies"], note: "Realm" },
+    { name: "Dark and Darker", icon: "🕯️", services: ["High level characters", "Stash full", "Keys"], note: "Full access" },
+    { name: "DC Universe Online", icon: "🦸", services: ["CR 400+", "High cash", "Rare items"], note: "Email" },
+    { name: "Delta Force", icon: "🎯", services: ["Ranked accounts", "High Alloy", "Operator skins"], note: "Transfer" },
+    { name: "Diablo 4", icon: "😈", services: ["Max level 100", "Uber uniques", "High gold"], note: "Battle.net" },
+    { name: "Digimon Super Rumble", icon: "🐉", services: ["High rank accounts", "Bits rich", "Rare chips"], note: "ID" },
+    { name: "Dofus", icon: "🐉", services: ["Multi-character accounts", "High Kamas", "Dofus"], note: "Ankama" },
+    { name: "DonutSMP", icon: "🍩", services: ["Donor accounts", "High coins", "Pets"], note: "Server" },
+    { name: "Dragon Adventures", icon: "🐲", services: ["Rare pet accounts", "High coins", "Potion rich"], note: "Roblox" },
+    { name: "Dreadmyst", icon: "🌑", services: ["Gold stocked", "Rare gear", "High level"], note: "Full access" },
+    { name: "Dune: Awakening", icon: "🏜️", services: ["Early access", "High Solaris", "Blueprints"], note: "Steam" },
+    { name: "EA Sports FC", icon: "⚽", services: ["Ultimate Team accounts", "High FC Coins", "Rare cards"], note: "EA" },
+    { name: "Elden Ring", icon: "🌙", services: ["Max level", "All items", "Rune stacks"], note: "Steam" },
+    { name: "Elder Scrolls Online", icon: "🏹", services: ["CP 2000+", "High Gold", "Crowns"], note: "Email" },
+    { name: "Escape From Tarkov", icon: "🔫", services: ["Kappa container", "Max traders", "High stash"], note: "Full" },
+    { name: "Escape Tsunami", icon: "🌊", services: ["High token accounts", "Rare items"], note: "Roblox" },
+    { name: "EVE Echoes", icon: "🚀", services: ["Capital pilots", "High ISK", "Ships"], note: "Omega" },
+    { name: "EVE Online", icon: "🛸", services: ["Titan pilots", "High ISK", "Injectors"], note: "Character bazaar" },
+    { name: "Fallout 76", icon: "☢️", services: ["High level", "Legacies", "Plans"], note: "Beth" },
+    { name: "Farever", icon: "✨", services: ["Rare items accounts", "High gold", "Mounts"], note: "Secure" },
+    { name: "Final Fantasy XI", icon: "⚔️", services: ["Mythic accounts", "High Gil", "Rare items"], note: "Square" },
+    { name: "Final Fantasy XIV", icon: "🌟", services: ["Omni 90", "High Gil", "Materia"], note: "Mogstation" },
+    { name: "Fisch", icon: "🐟", services: ["C$ rich accounts", "High level", "Rare rods"], note: "Roblox" },
+    { name: "Fix It Up", icon: "🔧", services: ["High level", "High coins", "Upgrades"], note: "Game" },
+    { name: "Forza Horizon 5", icon: "🏎️", services: ["Rare car accounts", "High credits", "Wheelspins"], note: "Microsoft" },
+    { name: "Forza Horizon 6", icon: "🏎️", services: ["Max credits", "Rare cars", "Mastery"], note: "MS" },
+    { name: "Grow a Garden", icon: "🌱", services: ["Token rich accounts", "High seeds", "Boosts"], note: "Roblox" },
+    { name: "Growtopia", icon: "🌳", services: ["BGL accounts", "Locks", "Rare seeds"], note: "Email" },
+    { name: "Guild Wars 2", icon: "🗡️", services: ["Legendary equipped", "High Gold", "Mystic Coins"], note: "ArenaNet" },
+    { name: "Knight Online", icon: "🛡️", services: ["+10 items accounts", "Gold Bars", "Uniques"], note: "NTT" },
+    { name: "Last Epoch", icon: "💀", services: ["Level 100", "High Gold", "Uniques"], note: "Steam" },
+    { name: "Lost Ark", icon: "⚓", services: ["1580+ ilvl", "High Gold", "Gems"], note: "Amazon" },
+    { name: "Madden NFL", icon: "🏈", services: ["MUT god squads", "High Coins", "Packs"], note: "EA" },
+    { name: "MapleStory", icon: "🍁", services: ["Level 250+", "High Mesos", "Nodestones"], note: "Nexon" },
+    { name: "Metin2", icon: "🐉", services: ["High level", "Dragon armors", "Won"], note: "Gameforge" },
+    { name: "Minecraft Hypixel", icon: "⛏️", services: ["Skyblock endgame", "Coins", "Essence"], note: "Microsoft" },
+    { name: "MLB The Show", icon: "⚾", services: ["Diamond Dynasty", "Stubs", "Packs"], note: "PSN" },
+    { name: "Mortal Online 2", icon: "⚔️", services: ["Max skills", "High Gold", "Gear"], note: "Steam" },
+    { name: "New World", icon: "🌎", services: ["600+ expertise", "Coins", "High GS Gear"], note: "Amazon" },
+    { name: "Old School RuneScape", icon: "🪙", services: ["Maxed mains", "Pures", "Ironmen"], note: "Jagex" },
+    { name: "Path of Exile 2", icon: "💀", services: ["High level", "Divine Orbs", "Maps"], note: "GGG" },
+    { name: "Path of Exile", icon: "💀", services: ["Mirror ready", "High Currency", "Mageblood"], note: "Email" },
+    { name: "Pet Simulator 99", icon: "🐾", services: ["Huge pet accounts", "Gems", "Eggs"], note: "Roblox" },
+    { name: "Pets Go", icon: "🐕", services: ["Diamond rich", "Shiny pets", "Boosters"], note: "Roblox" },
+    { name: "Pixel Worlds", icon: "🎨", services: ["Byte coin rich", "World Locks", "Items"], note: "Game" },
+    { name: "Pokemon Go", icon: "✨", services: ["Level 50", "Shiny mythicals", "High Stardust"], note: "PTC" },
+    { name: "Rise Online", icon: "⚜️", services: ["High geared", "Gold Bars", "Premium"], note: "Mail" },
+    { name: "Roblox", icon: "🤖", services: ["Limiteds accounts", "Robux", "Gamepasses"], note: "Full" },
+    { name: "Royale High", icon: "👑", services: ["Halo owners", "High Diamonds", "Rare wings"], note: "Roblox" },
+    { name: "RuneScape 3", icon: "⚔️", services: ["Max cape", "Masterwork gear", "High Gold"], note: "Jagex" },
+    { name: "Standoff 2", icon: "🔫", services: ["Rare skin accounts", "High Gold", "Skins"], note: "Mail" },
+    { name: "Star Citizen", icon: "🛸", services: ["Fleet accounts", "Ships", "aUEC"], note: "RSI" },
+    { name: "SWTOR", icon: "✨", services: ["Legendary status", "High Credits", "Cartel items"], note: "EA" },
+    { name: "Tap Simulator", icon: "👆", services: ["High rebirth", "Tokens", "Pets"], note: "Roblox" },
+    { name: "Temtem", icon: "🐧", services: ["Competitive teams", "Pansun", "Lumas"], note: "Humble" },
+    { name: "The Quinfall", icon: "🏰", services: ["High level", "Gold", "Gear"], note: "Steam" },
+    { name: "Throne and Liberty", icon: "👑", services: ["High gear score", "Lucent", "Sollant"], note: "AGS" },
+    { name: "Tibia", icon: "🗡️", services: ["High level", "Gold", "Items"], note: "CipSoft" },
+    { name: "Toilet Tower Defense", icon: "🚽", services: ["Rare units", "Gems", "Exclusive"], note: "Roblox" },
+    { name: "Torchlight Infinite", icon: "🔥", services: ["Endgame", "Flame Elementium", "Legendaries"], note: "Email" },
+    { name: "Trove", icon: "🎮", services: ["High mastery", "Flux", "Dragons"], note: "Gamigo" },
+    { name: "Warframe", icon: "🌀", services: ["MR 30+", "Platinum", "Prime sets"], note: "DE" },
+    { name: "World of Warcraft", icon: "🛡️", services: ["Gladiator", "Mythic geared", "High Gold"], note: "Battle.net" },
+    { name: "WoW Classic Era", icon: "🛡️", services: ["Naxx geared", "High Gold", "Materials"], note: "BNet" },
+    { name: "WoW Mists of Pandaria", icon: "🐉", services: ["MoP remix", "Gear", "Mounts"], note: "Transfer" }
   ];
 
+  // --------------------------------------------------------------
+  // 3. TOP UPS GAMES (3+ items each)
+  // --------------------------------------------------------------
   const topupsGames = [
-    { name: "8 Ball Pool Cash", icon: "🎱", services: ["Cash", "Pool Coins"], note: "ID" },
-    { name: "99 Nights in the Forest Diamonds", icon: "🌲", services: ["Diamonds"], note: "Top-up" },
-    { name: "Amazon Subscription", icon: "📦", services: ["Prime", "Gift cards"], note: "Code" },
-    { name: "Apex Legends Top Ups", icon: "🦍", services: ["Apex Coins"], note: "EA" },
-    { name: "Arena Breakout Top Ups", icon: "🔫", services: ["Credits"], note: "UID" },
-    { name: "Arknights: Endfield Origeometry", icon: "🏭", services: ["Origeometry"], note: "UID" },
-    { name: "BGMI UC", icon: "📱", services: ["UC"], note: "ID" },
-    { name: "Bigo Live Diamonds", icon: "📹", services: ["Diamonds"], note: "User" },
-    { name: "Bite by Night Scraps", icon: "🧛", services: ["Scraps"], note: "Game" },
-    { name: "Blood Strike Gold", icon: "🔫", services: ["Gold"], note: "ID" },
-    { name: "BloxStrike Credits", icon: "💥", services: ["Credits"], note: "Roblox" },
-    { name: "Brawl Stars Gems", icon: "⭐", services: ["Gems"], note: "Supercell" },
-    { name: "Call of Duty Mobile CP", icon: "📱", services: ["CP"], note: "Activision" },
-    { name: "Call of Duty Points", icon: "🎮", services: ["COD Points"], note: "Platform" },
-    { name: "ChatGPT Subscription", icon: "🤖", services: ["Plus"], note: "Email" },
-    { name: "Clash of Clans Gems", icon: "🏰", services: ["Gems"], note: "Supercell" },
-    { name: "Clash Royale Gems", icon: "👑", services: ["Gems"], note: "Supercell" },
-    { name: "Crunchyroll Subscription", icon: "📺", services: ["Megafan"], note: "Code" },
-    { name: "Dead By Daylight Auric Cells", icon: "🔪", services: ["Auric Cells"], note: "BHVR" },
-    { name: "Delta Force Delta Coins", icon: "🎯", services: ["Delta Coins"], note: "Garena" },
-    { name: "Destiny 2 Silver", icon: "🌌", services: ["Silver"], note: "Bungie" },
-    { name: "EA Play Subscription", icon: "🎮", services: ["EA Play"], note: "Code" },
-    { name: "EA Sports FC Points", icon: "⚽", services: ["FC Points"], note: "EA" },
-    { name: "eFootball 2026 Coins", icon: "⚽", services: ["Coins"], note: "Konami" },
-    { name: "Elder Scrolls Online Crowns", icon: "🏹", services: ["Crowns"], note: "Zeni" },
-    { name: "Fortnite V-Bucks", icon: "🎮", services: ["V-Bucks"], note: "Epic" },
-    { name: "Garena Free Fire Diamonds", icon: "🔥", services: ["Diamonds"], note: "Garena" },
-    { name: "Genshin Impact Top Ups", icon: "⭐", services: ["Genesis Crystals"], note: "UID" },
-    { name: "Growtopia Gems", icon: "🌳", services: ["Gems"], note: "ID" },
-    { name: "Honkai: Star Rail Oneiric Shards", icon: "🌟", services: ["Shards"], note: "UID" },
-    { name: "Honor of Kings Tokens", icon: "👑", services: ["Tokens"], note: "ID" },
-    { name: "Identity V Echoes", icon: "🎭", services: ["Echoes"], note: "NetEase" },
-    { name: "League of Legends Riot Points", icon: "🏆", services: ["RP"], note: "Riot" },
-    { name: "League of Legends: Wild Rift Wild Cores", icon: "📱", services: ["Wild Cores"], note: "Riot" },
-    { name: "Marvel Rivals Lattice", icon: "🦸", services: ["Lattice"], note: "NetEase" },
-    { name: "Metin2 Dragon Coins", icon: "🐉", services: ["Dragon Coins"], note: "Gameforge" },
-    { name: "Miliastra Wonderland Chronal Nexus", icon: "✨", services: ["Nexus"], note: "UID" },
-    { name: "Minecraft Minecoins", icon: "⛏️", services: ["Minecoins"], note: "Microsoft" },
-    { name: "Mobile Legends Diamonds", icon: "📱", services: ["Diamonds"], note: "Moonton" },
-    { name: "Neverness to Everness Riftcrystal", icon: "🌌", services: ["Riftcrystal"], note: "UID" },
-    { name: "Nintendo Subscription", icon: "🎮", services: ["Switch Online"], note: "Code" },
-    { name: "Overwatch Coins", icon: "🦸", services: ["Coins"], note: "Blizzard" },
-    { name: "Path of Exile 2 Points", icon: "💀", services: ["Points"], note: "GGG" },
-    { name: "PlayStation Subscription", icon: "🎮", services: ["PS Plus"], note: "Code" },
-    { name: "Point Blank TAM Gold", icon: "🔫", services: ["Gold"], note: "ID" },
-    { name: "Pokemon Go Top Ups", icon: "✨", services: ["Pokecoins"], note: "Niantic" },
-    { name: "Pokemon TCG Pocket Poke Gold", icon: "🃏", services: ["Poke Gold"], note: "UID" },
-    { name: "Poppo Live Coins", icon: "📱", services: ["Coins"], note: "User" },
-    { name: "PUBG G-Coins", icon: "🪂", services: ["G-Coins"], note: "Krafton" },
-    { name: "PUBG Mobile UC", icon: "📱", services: ["UC"], note: "ID" },
-    { name: "Rainbow Six Siege X Credits", icon: "🔫", services: ["Credits"], note: "Ubisoft" },
-    { name: "Roblox Top Ups", icon: "🤖", services: ["Robux"], note: "Group" },
-    { name: "Rocket League Credits", icon: "🚗", services: ["Credits"], note: "Epic" },
-    { name: "Rust Coins", icon: "🛠️", services: ["Coins"], note: "Steam" },
-    { name: "Sea of Thieves Ancient Coins", icon: "⛵", services: ["Ancient Coins"], note: "Microsoft" },
-    { name: "Silkroad Online Türkiye Silk", icon: "🐫", services: ["Silk"], note: "ID" },
-    { name: "Sniper Duels Gems", icon: "🔫", services: ["Gems"], note: "Roblox" },
-    { name: "Spotify Subscription", icon: "🎵", services: ["Premium"], note: "Code" },
-    { name: "Super Sus Goldstars", icon: "🕵️", services: ["Goldstars"], note: "ID" },
-    { name: "The Seven Deadly Sins Origin Star Memory", icon: "👿", services: ["Star Memory"], note: "UID" },
-    { name: "TikTok Coins", icon: "📱", services: ["Coins"], note: "User" },
-    { name: "Valorant Points", icon: "🎯", services: ["VP"], note: "Riot" },
-    { name: "Where Winds Meet Echo Beads", icon: "🍃", services: ["Echo Beads"], note: "UID" },
-    { name: "Whiteout Survival Frost Stars", icon: "❄️", services: ["Frost Stars"], note: "ID" },
-    { name: "WolfTeam Cash", icon: "🐺", services: ["Cash"], note: "ID" },
-    { name: "World of Warcraft Subscription", icon: "🛡️", services: ["Game Time"], note: "Blizzard" },
-    { name: "Wuthering Waves Lunites", icon: "🌊", services: ["Lunites"], note: "UID" },
-    { name: "Xbox Game Pass", icon: "🎮", services: ["Ultimate"], note: "Code" },
-    { name: "Yalla Ludo Diamonds", icon: "🎲", services: ["Diamonds"], note: "ID" },
-    { name: "Zenless Zone Zero Monochromes", icon: "🌀", services: ["Monochromes"], note: "UID" },
-    { name: "ZEPETO ZEMs", icon: "👗", services: ["ZEMs"], note: "User" },
-    { name: "Zula Gold", icon: "🔫", services: ["Gold"], note: "ID" }
+    { name: "8 Ball Pool Cash", icon: "🎱", services: ["Cash", "Pool Coins", "Legendary Boxes"], note: "ID top-up" },
+    { name: "99 Nights in the Forest Diamonds", icon: "🌲", services: ["Diamonds", "Premium Pass", "Event currency"], note: "UID top-up" },
+    { name: "Amazon Subscription", icon: "📦", services: ["Prime", "Gift cards", "Prime Video"], note: "Code" },
+    { name: "Apex Legends Top Ups", icon: "🦍", services: ["Apex Coins", "Battle Pass", "Milestones"], note: "EA account" },
+    { name: "Arena Breakout Top Ups", icon: "🔫", services: ["Credits", "Premium Pass", "Case slots"], note: "UID top-up" },
+    { name: "Arknights: Endfield Origeometry", icon: "🏭", services: ["Origeometry", "Recruitment passes", "Pack"], note: "UID" },
+    { name: "BGMI UC", icon: "📱", services: ["UC", "Royale Pass", "Containers"], note: "ID top-up" },
+    { name: "Bigo Live Diamonds", icon: "📹", services: ["Diamonds", "VIP subscription", "Gifts"], note: "User ID" },
+    { name: "Bite by Night Scraps", icon: "🧛", services: ["Scraps", "VIP Pass", "Event currency"], note: "Game ID" },
+    { name: "Blood Strike Gold", icon: "🔫", services: ["Gold", "Battle Pass", "Weapon skins"], note: "ID top-up" },
+    { name: "BloxStrike Credits", icon: "💥", services: ["Credits", "Weapon skins", "Boosts"], note: "Roblox" },
+    { name: "Brawl Stars Gems", icon: "⭐", services: ["Gems", "Brawl Pass", "Hypercharge"], note: "Supercell ID" },
+    { name: "Call of Duty Mobile CP", icon: "📱", services: ["CP", "Battle Pass", "Draws"], note: "Activision" },
+    { name: "Call of Duty Points", icon: "🎮", services: ["COD Points", "BlackCell", "Bundles"], note: "Platform" },
+    { name: "ChatGPT Subscription", icon: "🤖", services: ["Plus", "Pro", "Team plan"], note: "Email" },
+    { name: "Clash of Clans Gems", icon: "🏰", services: ["Gems", "Gold Pass", "Magic items"], note: "Supercell ID" },
+    { name: "Clash Royale Gems", icon: "👑", services: ["Gems", "Pass Royale", "Chests"], note: "Supercell ID" },
+    { name: "Crunchyroll Subscription", icon: "📺", services: ["Megafan", "Ultimate Fan", "Manga"], note: "Code" },
+    { name: "Dead By Daylight Auric Cells", icon: "🔪", services: ["Auric Cells", "Rift Pass", "Charms"], note: "BHVR" },
+    { name: "Delta Force Delta Coins", icon: "🎯", services: ["Delta Coins", "Battle Pass", "Skins"], note: "Garena" },
+    { name: "Destiny 2 Silver", icon: "🌌", services: ["Silver", "Season Pass", "Bundles"], note: "Bungie" },
+    { name: "EA Play Subscription", icon: "🎮", services: ["EA Play", "Play Pro", "Access"], note: "Code" },
+    { name: "EA Sports FC Points", icon: "⚽", services: ["FC Points", "Season Pass", "Packs"], note: "EA" },
+    { name: "eFootball 2026 Coins", icon: "⚽", services: ["Coins", "Match Pass", "Premium"], note: "Konami" },
+    { name: "Elder Scrolls Online Crowns", icon: "🏹", services: ["Crowns", "ESO Plus", "DLC"], note: "Zeni" },
+    { name: "Fortnite V-Bucks", icon: "🎮", services: ["V-Bucks", "Crew Pack", "Battle Pass"], note: "Epic" },
+    { name: "Garena Free Fire Diamonds", icon: "🔥", services: ["Diamonds", "Elite Pass", "Bundles"], note: "Garena" },
+    { name: "Genshin Impact Top Ups", icon: "⭐", services: ["Genesis Crystals", "Welkin Moon", "BP"], note: "UID" },
+    { name: "Growtopia Gems", icon: "🌳", services: ["Gems", "Growpass", "IAP items"], note: "ID" },
+    { name: "Honkai: Star Rail Oneiric Shards", icon: "🌟", services: ["Shards", "Supply Pass", "BP"], note: "UID" },
+    { name: "Honor of Kings Tokens", icon: "👑", services: ["Tokens", "Battle Pass", "Skins"], note: "ID" },
+    { name: "Identity V Echoes", icon: "🎭", services: ["Echoes", "Logic Path", "Skins"], note: "NetEase" },
+    { name: "League of Legends Riot Points", icon: "🏆", services: ["RP", "Event Pass", "Skin bundles"], note: "Riot" },
+    { name: "League of Legends: Wild Rift Wild Cores", icon: "📱", services: ["Wild Cores", "Pass", "Skins"], note: "Riot" },
+    { name: "Marvel Rivals Lattice", icon: "🦸", services: ["Lattice", "Battle Pass", "Hero skins"], note: "NetEase" },
+    { name: "Metin2 Dragon Coins", icon: "🐉", services: ["Dragon Coins", "Premium", "Items"], note: "Gameforge" },
+    { name: "Miliastra Wonderland Chronal Nexus", icon: "✨", services: ["Nexus", "Premium Pass", "Skins"], note: "UID" },
+    { name: "Minecraft Minecoins", icon: "⛏️", services: ["Minecoins", "Minecraft Realms", "Skin packs"], note: "Microsoft" },
+    { name: "Mobile Legends Diamonds", icon: "📱", services: ["Diamonds", "Starlight", "Twilight Pass"], note: "Moonton" },
+    { name: "Neverness to Everness Riftcrystal", icon: "🌌", services: ["Riftcrystal", "Battle Pass", "Skins"], note: "UID" },
+    { name: "Nintendo Subscription", icon: "🎮", services: ["Switch Online", "Expansion Pack", "Family"], note: "Code" },
+    { name: "Overwatch Coins", icon: "🦸", services: ["Coins", "Battle Pass", "Mythic skins"], note: "Blizzard" },
+    { name: "Path of Exile 2 Points", icon: "💀", services: ["Points", "Supporter Packs", "Stash Tabs"], note: "GGG" },
+    { name: "PlayStation Subscription", icon: "🎮", services: ["PS Plus Essential", "Extra", "Premium"], note: "Code" },
+    { name: "Point Blank TAM Gold", icon: "🔫", services: ["Gold", "Premium Pass", "Skins"], note: "ID" },
+    { name: "Pokemon Go Top Ups", icon: "✨", services: ["Pokecoins", "Event Tickets", "Boxes"], note: "Niantic" },
+    { name: "Pokemon TCG Pocket Poke Gold", icon: "🃏", services: ["Poke Gold", "Premium Pass", "Packs"], note: "UID" },
+    { name: "Poppo Live Coins", icon: "📱", services: ["Coins", "Gifts", "VIP"], note: "User" },
+    { name: "PUBG G-Coins", icon: "🪂", services: ["G-Coins", "Survivor Pass", "Crates"], note: "Krafton" },
+    { name: "PUBG Mobile UC", icon: "📱", services: ["UC", "Royale Pass", "Spin"], note: "ID" },
+    { name: "Rainbow Six Siege X Credits", icon: "🔫", services: ["Credits", "Battle Pass", "Elite skins"], note: "Ubisoft" },
+    { name: "Roblox Top Ups", icon: "🤖", services: ["Robux", "Premium", "Gamepasses"], note: "Group" },
+    { name: "Rocket League Credits", icon: "🚗", services: ["Credits", "Rocket Pass", "Blueprint"], note: "Epic" },
+    { name: "Rust Coins", icon: "🛠️", services: ["Coins", "Premium", "Skins"], note: "Steam" },
+    { name: "Sea of Thieves Ancient Coins", icon: "⛵", services: ["Ancient Coins", "Plunder Pass", "Emporium"], note: "Microsoft" },
+    { name: "Silkroad Online Türkiye Silk", icon: "🐫", services: ["Silk", "Premium", "Items"], note: "ID" },
+    { name: "Sniper Duels Gems", icon: "🔫", services: ["Gems", "Battle Pass", "Weapons"], note: "Roblox" },
+    { name: "Spotify Subscription", icon: "🎵", services: ["Premium Individual", "Duo", "Family"], note: "Code" },
+    { name: "Super Sus Goldstars", icon: "🕵️", services: ["Goldstars", "Pass", "Skins"], note: "ID" },
+    { name: "The Seven Deadly Sins Origin Star Memory", icon: "👿", services: ["Star Memory", "Pass", "Draws"], note: "UID" },
+    { name: "TikTok Coins", icon: "📱", services: ["Coins", "Gifts", "Live rewards"], note: "User" },
+    { name: "Valorant Points", icon: "🎯", services: ["VP", "Radianite Points", "Battle Pass"], note: "Riot" },
+    { name: "Where Winds Meet Echo Beads", icon: "🍃", services: ["Echo Beads", "Battle Pass", "Skins"], note: "UID" },
+    { name: "Whiteout Survival Frost Stars", icon: "❄️", services: ["Frost Stars", "Event Pass", "Packs"], note: "ID" },
+    { name: "WolfTeam Cash", icon: "🐺", services: ["Cash", "Premium", "Weapons"], note: "ID" },
+    { name: "World of Warcraft Subscription", icon: "🛡️", services: ["Game Time", "Expansions", "Services"], note: "Blizzard" },
+    { name: "Wuthering Waves Lunites", icon: "🌊", services: ["Lunites", "Battle Pass", "Convenience"], note: "UID" },
+    { name: "Xbox Game Pass", icon: "🎮", services: ["Core", "Ultimate", "PC"], note: "Code" },
+    { name: "Yalla Ludo Diamonds", icon: "🎲", services: ["Diamonds", "VIP", "Gifts"], note: "ID" },
+    { name: "Zenless Zone Zero Monochromes", icon: "🌀", services: ["Monochromes", "IK membership", "BP"], note: "UID" },
+    { name: "ZEPETO ZEMs", icon: "👗", services: ["ZEMs", "Premium items", "VIP"], note: "User" },
+    { name: "Zula Gold", icon: "🔫", services: ["Gold", "Battle Pass", "Weapons"], note: "ID" }
   ];
 
+  // --------------------------------------------------------------
+  // 4. ITEMS GAMES (3+ items each)
+  // --------------------------------------------------------------
   const itemsGames = [
-    { name: "A Universal Time", icon: "⏳", services: ["Stand skins", "Items"], note: "Roblox" },
-    { name: "Abyss", icon: "🌊", services: ["Weapons", "Cursed items"], note: "Trade" },
-    { name: "Adopt Me", icon: "🐣", services: ["Legendary pets", "Potions"], note: "Cross-trade" },
-    { name: "Albion Online", icon: "⚔️", services: ["8.3 gear", "Ava items"], note: "Black market" },
-    { name: "All Star Tower Defense X", icon: "⭐", services: ["Limited units"], note: "Roblox" },
-    { name: "Animal Crossing: New Horizons", icon: "🐻", services: ["NMT", "Bells", "Rare items"], note: "Dodo" },
-    { name: "Anime Apocalypse (New)", icon: "💥", services: ["Exclusive units"], note: "Trade" },
-    { name: "Anime Card Clash", icon: "🎴", services: ["Rare cards"], note: "Game" },
-    { name: "Anime Defenders", icon: "🛡️", services: ["Mythical units"], note: "Roblox" },
-    { name: "Anime Eternal", icon: "✨", services: ["Legendary souls"], note: "Trade" },
-    { name: "Anime Fighting Simulator: Endless", icon: "🥋", services: ["Chikara", "Exclusive"], note: "Roblox" },
-    { name: "Anime Last Stand", icon: "⚔️", services: ["Evolved units"], note: "Hub" },
-    { name: "Anime Paradox", icon: "🌀", services: ["Shiny units"], note: "Trade" },
-    { name: "Anime Tactical Simulator", icon: "🎯", services: ["Rare skins"], note: "Roblox" },
-    { name: "Anime Vanguards", icon: "🛡️", services: ["Limited units", "Gems"], note: "Direct" },
-    { name: "Anime Warriors 3 (New)", icon: "⚔️", services: ["Exclusive"], note: "Trade" },
-    { name: "Arc Raiders", icon: "🚀", services: ["Weapon skins"], note: "Market" },
-    { name: "ARK: Survival Ascended", icon: "🦖", services: ["Dinos", "Blueprints"], note: "Trade" },
-    { name: "Attack on Titan Revolution", icon: "⚔️", services: ["Weapons", "Skills"], note: "Roblox" },
-    { name: "Baddies", icon: "😈", services: ["Rare items"], note: "Game" },
-    { name: "Battlefield", icon: "🔫", services: ["Weapon skins"], note: "Market" },
-    { name: "Be a Lucky Block", icon: "🍀", services: ["Rare items"], note: "Roblox" },
-    { name: "Bee Swarm Simulator", icon: "🐝", services: ["Mythic bees", "Star treats"], note: "Trade" },
-    { name: "Bizarre Lineage", icon: "🌀", services: ["Stand arrows"], note: "Roblox" },
-    { name: "Blade Ball", icon: "⚔️", services: ["Skins", "Emotes"], note: "Trade" },
-    { name: "Bloodlines", icon: "🧛", services: ["Bloodline items"], note: "Game" },
-    { name: "Blox Fruits", icon: "🍎", services: ["Perm fruits", "Gamepasses"], note: "Private server" },
-    { name: "BloxStrike (New)", icon: "💥", services: ["Weapon skins"], note: "Roblox" },
-    { name: "Blue Lock: Rivals", icon: "⚽", services: ["Rare characters"], note: "Trade" },
-    { name: "Borderlands 4", icon: "🔫", services: ["Legendaries"], note: "Mail" },
-    { name: "Break a Lucky Block", icon: "🍀", services: ["Rares"], note: "Roblox" },
-    { name: "bridger: WESTERN", icon: "🏜️", services: ["Horses", "Gear"], note: "Game" },
-    { name: "Bubble Gum Simulator INFINITY", icon: "🫧", services: ["Pets", "Coins"], note: "Trade" },
-    { name: "Build a Zoo", icon: "🏗️", services: ["Animals", "Decor"], note: "Market" },
-    { name: "Call of Duty", icon: "🔫", services: ["Blueprints", "Camos"], note: "Gift" },
-    { name: "Case Paradise", icon: "🎁", services: ["Cases", "Keys"], note: "Roblox" },
-    { name: "Catch And Tame", icon: "🐎", services: ["Rare creatures"], note: "Trade" },
-    { name: "Clash of Clans", icon: "🏰", services: ["Magic items"], note: "Clan" },
-    { name: "Counter-Strike 2", icon: "🔫", services: ["Knives", "Gloves"], note: "Steam" },
-    { name: "Creatures of Sonaria", icon: "🦖", services: ["Specs", "Plushies"], note: "Realm" },
-    { name: "Da Hood", icon: "🏘️", services: ["Guns", "Cash"], note: "Roblox" },
-    { name: "Dark and Darker", icon: "🕯️", services: ["Keycards", "Capes"], note: "Market" },
-    { name: "Delta Force", icon: "🎯", services: ["Weapon skins"], note: "Trade" },
-    { name: "Destiny 2", icon: "🌌", services: ["Exotics", "Adept weapons"], note: "Bungie" },
-    { name: "Devil Hunter", icon: "😈", services: ["Souls", "Weapons"], note: "Game" },
-    { name: "Diablo 2: Resurrected", icon: "😈", services: ["High runes", "Uniques"], note: "Trade" },
-    { name: "Diablo 4", icon: "😈", services: ["Uber uniques", "Durations"], note: "Trade" },
-    { name: "Discord", icon: "💬", services: ["Nitro", "Emotes"], note: "Gift" },
-    { name: "DonutSMP", icon: "🍩", services: ["Coins", "Pets"], note: "Server" },
-    { name: "Dota 2", icon: "⚔️", services: ["Arcanas", "Immortals"], note: "Steam" },
-    { name: "Dreadmyst", icon: "🌑", services: ["Gear", "Mystics"], note: "Trade" },
-    { name: "Dune: Awakening", icon: "🏜️", services: ["Spice", "Weapons"], note: "Market" },
-    { name: "EA Sports FC", icon: "⚽", services: ["Ultimate Team cards"], note: "Transfer" },
+    { name: "A Universal Time", icon: "⏳", services: ["Stand skins", "Items", "Blessings"], note: "Roblox" },
+    { name: "Abyss", icon: "🌊", services: ["Weapons", "Cursed items", "Runes"], note: "Trade" },
+    { name: "Adopt Me", icon: "🐣", services: ["Legendary pets", "Potions", "Vehicles"], note: "Cross-trade" },
+    { name: "Albion Online", icon: "⚔️", services: ["8.3 gear", "Ava items", "Runes"], note: "Black market" },
+    { name: "All Star Tower Defense X", icon: "⭐", services: ["Limited units", "Gems", "Passes"], note: "Roblox" },
+    { name: "Animal Crossing: New Horizons", icon: "🐻", services: ["NMT", "Bells", "Rare items"], note: "Dodo code" },
+    { name: "Anime Apocalypse (New)", icon: "💥", services: ["Exclusive units", "Gems", "Boosts"], note: "Trade" },
+    { name: "Anime Card Clash", icon: "🎴", services: ["Rare cards", "Packs", "Diamonds"], note: "Game" },
+    { name: "Anime Defenders", icon: "🛡️", services: ["Mythical units", "Gems", "Trait items"], note: "Roblox" },
+    { name: "Anime Eternal", icon: "✨", services: ["Legendary souls", "Weapons", "Gems"], note: "Trade" },
+    { name: "Anime Fighting Simulator: Endless", icon: "🥋", services: ["Chikara", "Exclusive", "Boosts"], note: "Roblox" },
+    { name: "Anime Last Stand", icon: "⚔️", services: ["Evolved units", "Gems", "Passes"], note: "Hub" },
+    { name: "Anime Paradox", icon: "🌀", services: ["Shiny units", "Gems", "Chests"], note: "Trade" },
+    { name: "Anime Tactical Simulator", icon: "🎯", services: ["Rare skins", "Gems", "Weapons"], note: "Roblox" },
+    { name: "Anime Vanguards", icon: "🛡️", services: ["Limited units", "Gems", "Traits"], note: "Direct" },
+    { name: "Anime Warriors 3 (New)", icon: "⚔️", services: ["Exclusive units", "Gems", "Boosts"], note: "Trade" },
+    { name: "Arc Raiders", icon: "🚀", services: ["Weapon skins", "Blueprints", "Cosmetics"], note: "Market" },
+    { name: "ARK: Survival Ascended", icon: "🦖", services: ["Dinos", "Blueprints", "Items"], note: "Trade" },
+    { name: "Attack on Titan Revolution", icon: "⚔️", services: ["Weapons", "Skills", "Cosmetics"], note: "Roblox" },
+    { name: "Baddies", icon: "😈", services: ["Rare items", "Coins", "Weapons"], note: "Game" },
+    { name: "Battlefield", icon: "🔫", services: ["Weapon skins", "Vehicle skins", "Emblems"], note: "Market" },
+    { name: "Be a Lucky Block", icon: "🍀", services: ["Rare items", "Coins", "Blocks"], note: "Roblox" },
+    { name: "Bee Swarm Simulator", icon: "🐝", services: ["Mythic bees", "Star treats", "Gifted eggs"], note: "Trade" },
+    { name: "Bizarre Lineage", icon: "🌀", services: ["Stand arrows", "Rokas", "Cosmetics"], note: "Roblox" },
+    { name: "Blade Ball", icon: "⚔️", services: ["Skins", "Emotes", "Tokens"], note: "Trade" },
+    { name: "Bloodlines", icon: "🧛", services: ["Bloodline items", "Weapons", "Pets"], note: "Game" },
+    { name: "Blox Fruits", icon: "🍎", services: ["Perm fruits", "Gamepasses", "Fruit storage"], note: "Private server" },
+    { name: "BloxStrike (New)", icon: "💥", services: ["Weapon skins", "Credits", "Cases"], note: "Roblox" },
+    { name: "Blue Lock: Rivals", icon: "⚽", services: ["Rare characters", "Coins", "Passes"], note: "Trade" },
+    { name: "Borderlands 4", icon: "🔫", services: ["Legendaries", "Skins", "Heads"], note: "Mail" },
+    { name: "Break a Lucky Block", icon: "🍀", services: ["Rares", "Coins", "Blocks"], note: "Roblox" },
+    { name: "bridger: WESTERN", icon: "🏜️", services: ["Horses", "Gear", "Items"], note: "Game" },
+    { name: "Bubble Gum Simulator INFINITY", icon: "🫧", services: ["Pets", "Coins", "Gems"], note: "Trade" },
+    { name: "Build a Zoo", icon: "🏗️", services: ["Animals", "Decor", "Research"], note: "Market" },
+    { name: "Call of Duty", icon: "🔫", services: ["Blueprints", "Camos", "Operator skins"], note: "Gift" },
+    { name: "Case Paradise", icon: "🎁", services: ["Cases", "Keys", "Skins"], note: "Roblox" },
+    { name: "Catch And Tame", icon: "🐎", services: ["Rare creatures", "Coins", "Items"], note: "Trade" },
+    { name: "Clash of Clans", icon: "🏰", services: ["Magic items", "Resources", "Books"], note: "Clan" },
+    { name: "Counter-Strike 2", icon: "🔫", services: ["Knives", "Gloves", "Cases"], note: "Steam" },
+    { name: "Creatures of Sonaria", icon: "🦖", services: ["Specs", "Plushies", "Tokens"], note: "Realm" },
+    { name: "Da Hood", icon: "🏘️", services: ["Guns", "Cash", "Cosmetics"], note: "Roblox" },
+    { name: "Dark and Darker", icon: "🕯️", services: ["Keycards", "Capes", "Treasure"], note: "Market" },
+    { name: "Delta Force", icon: "🎯", services: ["Weapon skins", "Operator skins", "Charms"], note: "Trade" },
+    { name: "Destiny 2", icon: "🌌", services: ["Exotics", "Adept weapons", "Ornaments"], note: "Bungie" },
+    { name: "Devil Hunter", icon: "😈", services: ["Souls", "Weapons", "Items"], note: "Game" },
+    { name: "Diablo 2: Resurrected", icon: "😈", services: ["High runes", "Uniques", "Torches"], note: "Trade" },
+    { name: "Diablo 4", icon: "😈", services: ["Uber uniques", "Durations", "Mats"], note: "Trade" },
+    { name: "Discord", icon: "💬", services: ["Nitro", "Emotes", "Badges"], note: "Gift" },
+    { name: "DonutSMP", icon: "🍩", services: ["Coins", "Pets", "Items"], note: "Server" },
+    { name: "Dota 2", icon: "⚔️", services: ["Arcanas", "Immortals", "Caches"], note: "Steam" },
+    { name: "Dreadmyst", icon: "🌑", services: ["Gear", "Mystics", "Cosmetics"], note: "Trade" },
+    { name: "Dune: Awakening", icon: "🏜️", services: ["Spice", "Weapons", "Blueprints"], note: "Market" },
+    { name: "EA Sports FC", icon: "⚽", services: ["Ultimate Team cards", "Packs", "Cosmetics"], note: "Transfer" },
     { name: "Elden Ring", icon: "🌙", services: ["Runes", "Weapons", "Talismans"], note: "Drop" },
-    { name: "Elder Scrolls Online", icon: "🏹", services: ["Motifs", "Crowns"], note: "Mail" },
-    { name: "Escape from Tarkov", icon: "🔫", services: ["Cases", "Keycards"], note: "Flea" },
-    { name: "Escape Tsunami For Brainrots", icon: "🌊", services: ["Tokens"], note: "Game" },
-    { name: "Escape Waves For Lucky Blocks", icon: "🌊", services: ["Rares"], note: "Roblox" },
-    { name: "EVE Online", icon: "🚀", services: ["Ships", "Injectors"], note: "Contract" },
-    { name: "Fallout 76", icon: "☢️", services: ["Legacies", "Plans"], note: "Vendor" },
-    { name: "Fisch", icon: "🐟", services: ["Rods", "Boats"], note: "Gift" },
-    { name: "Fish It!", icon: "🎣", services: ["Rare fish"], note: "Trade" },
-    { name: "Flee the Facility", icon: "🏃", services: ["Crates", "Gems"], note: "Roblox" },
-    { name: "Fortnite", icon: "🎮", services: ["Skins", "Emotes"], note: "Gift" },
-    { name: "Garden Horizons", icon: "🌱", services: ["Seeds", "Tools"], note: "Game" },
-    { name: "Garden Tower Defense", icon: "🌻", services: ["Units"], note: "Roblox" },
-    { name: "Grand Piece Online", icon: "🏴‍☠️", services: ["Fruits", "Weapons"], note: "Trade" },
-    { name: "Grow a Garden", icon: "🌱", services: ["Tokens"], note: "Game" },
-    { name: "Growtopia", icon: "🌳", services: ["Locks", "Seeds"], note: "Trade" },
-    { name: "Guild Wars 2", icon: "🗡️", services: ["Legendaries", "Infusions"], note: "Mail" },
-    { name: "Hay Day", icon: "🚜", services: ["Diamonds", "Materials"], note: "Neighborhood" },
-    { name: "HugoSMP (New)", icon: "🤗", services: ["Coins"], note: "Server" },
-    { name: "Hunty Zombie", icon: "🧟", services: ["Weapons"], note: "Game" },
-    { name: "Hypershot", icon: "🔫", services: ["Skins"], note: "Steam" },
-    { name: "Ink Game", icon: "🖋️", services: ["Ink items"], note: "Trade" },
-    { name: "Jailbreak", icon: "🚔", services: ["Vehicles", "Guns"], note: "Roblox" },
-    { name: "Jujutsu Infinite", icon: "🔥", services: ["Domain Shards", "Scrolls"], note: "Direct" },
-    { name: "KAIZEN", icon: "🌀", services: ["Rare items"], note: "Game" },
-    { name: "Kick a Lucky Block", icon: "🍀", services: ["Rares"], note: "Roblox" },
-    { name: "King Legacy", icon: "👑", services: ["Fruits", "Swords"], note: "Trade" },
-    { name: "Knight Online", icon: "🛡️", services: ["Uniques", "Items"], note: "Merchant" },
-    { name: "Knockout", icon: "🥊", services: ["Skins"], note: "Game" },
-    { name: "League of Legends", icon: "🏆", services: ["Skins", "Chromas"], note: "Gift" },
-    { name: "Lost Ark", icon: "⚓", services: ["Legendary cards", "Gems"], note: "AH" },
-    { name: "Metin2", icon: "🐉", services: ["Dragon armors", "Weapons"], note: "Shop" },
-    { name: "Minecraft Hypixel Items", icon: "⛏️", services: ["Skyblock items", "Dungeon carries"], note: "AH" },
-    { name: "Mini War (New)", icon: "⚔️", services: ["Units"], note: "Trade" },
-    { name: "Monopoly Go", icon: "🎲", services: ["Dice rolls", "Stickers"], note: "Gift" },
-    { name: "Murder Mystery 2", icon: "🔪", services: ["Godlies", "Ancients"], note: "Trade" },
-    { name: "Murderers VS Sheriffs DUELS", icon: "🔫", services: ["Skins"], note: "Game" },
-    { name: "Noob Tower Defense (New)", icon: "🛡️", services: ["Units"], note: "Roblox" },
-    { name: "Old School RuneScape", icon: "🪙", services: ["Gear", "Rares"], note: "GE" },
-    { name: "Path of Exile", icon: "💀", services: ["Mirrors", "Mageblood"], note: "Trade" },
-    { name: "Path of Exile 2", icon: "💀", services: ["Legendaries"], note: "Trade" },
-    { name: "Pet Simulator 99", icon: "🐾", services: ["Huge pets", "Eggs"], note: "Mail" },
-    { name: "Pets Go", icon: "🐕", services: ["Diamonds", "Pets"], note: "Trade" },
-    { name: "Plants vs Brainrots", icon: "🌱", services: ["Plants"], note: "Game" },
-    { name: "Pokemon Go", icon: "✨", services: ["Shinies", "Legendaries"], note: "Trade" },
-    { name: "Pokemon Legends: Z-A", icon: "🌟", services: ["Rare mons"], note: "Trade" },
-    { name: "Pokemon TCG Pocket", icon: "🃏", services: ["Cards"], note: "Gift" },
-    { name: "Raise Animals", icon: "🐄", services: ["Animals"], note: "Game" },
-    { name: "Re:Rangers X", icon: "🔫", services: ["Weapons"], note: "Roblox" },
-    { name: "Roblox", icon: "🤖", services: ["Limiteds", "Gamepasses"], note: "Trade" },
-    { name: "Roblox Limiteds", icon: "💎", services: ["Dominus", "Sparkle"], note: "Hold" },
-    { name: "Roblox Rivals", icon: "⚔️", services: ["Skins"], note: "Game" },
-    { name: "RuneScape 3", icon: "⚔️", services: ["Rares (Partyhats)", "T92 gear"], note: "GE" },
-    { name: "Rust", icon: "🛠️", services: ["Skins", "Guns"], note: "Steam" },
-    { name: "Sailor Piece", icon: "🏴‍☠️", services: ["Fruits", "Swords"], note: "Trade" },
-    { name: "Slime RNG", icon: "🧪", services: ["Slimes"], note: "Game" },
-    { name: "Sniper Arena (New)", icon: "🔫", services: ["Skins"], note: "Roblox" },
-    { name: "Sol's RNG", icon: "☀️", services: ["Auras", "Potions"], note: "Trade" },
-    { name: "Sorcerer Tower Defense", icon: "🧙", services: ["Units"], note: "Game" },
-    { name: "Spin a Baddie", icon: "🌀", services: ["Rare items"], note: "Roblox" },
-    { name: "Spongebob Tower Defense", icon: "🧽", services: ["Characters"], note: "Trade" },
-    { name: "Star Citizen", icon: "🛸", services: ["Ships", "Armor"], note: "In-game" },
-    { name: "Steal a Brainrot", icon: "🧠", services: ["Tokens"], note: "Game" },
-    { name: "Steam", icon: "🎮", services: ["Game gifts", "Items"], note: "Trade" },
-    { name: "Summon Heroes", icon: "🦸", services: ["Heroes"], note: "Game" },
-    { name: "Survive Lava for Brainrots", icon: "🌋", services: ["Items"], note: "Roblox" },
-    { name: "Swing Obby for Brainrots", icon: "🏃", services: ["Tokens"], note: "Game" },
-    { name: "Tap Simulator", icon: "👆", services: ["Tokens", "Rebirths"], note: "Gift" },
-    { name: "Team Fortress 2", icon: "🔫", services: ["Unusuals", "Australiums"], note: "Steam" },
-    { name: "The Forge", icon: "⚒️", services: ["Forge items"], note: "Game" },
-    { name: "Tips Jar", icon: "🏺", services: ["Coins"], note: "Roblox" },
-    { name: "Twitch Drops", icon: "📺", services: ["Drops"], note: "Link" },
-    { name: "TYPE://SOUL", icon: "👻", services: ["Stand skins"], note: "Trade" },
-    { name: "Universal Tower Defense", icon: "🛡️", services: ["Units"], note: "Game" },
-    { name: "Volleyball Legends", icon: "🏐", services: ["Skins"], note: "Roblox" },
-    { name: "War Tycoon", icon: "🏆", services: ["Vehicles"], note: "Game" },
-    { name: "Warframe", icon: "🌀", services: ["Prime sets", "Rivens"], note: "Dojo" },
-    { name: "Wizard Alchemy", icon: "🔮", services: ["Potions"], note: "Trade" },
-    { name: "World of Warcraft", icon: "🛡️", services: ["Mounts", "BoE"], note: "AH" },
-    { name: "WoW Classic", icon: "🛡️", services: ["Flask", "Edge"], note: "Trade" },
-    { name: "WoW Mists of Pandaria", icon: "🐉", services: ["Remix items"], note: "Trade" }
+    { name: "Elder Scrolls Online", icon: "🏹", services: ["Motifs", "Crowns", "Mounts"], note: "Mail" },
+    { name: "Escape from Tarkov", icon: "🔫", services: ["Cases", "Keycards", "Containers"], note: "Flea" },
+    { name: "Escape Tsunami For Brainrots", icon: "🌊", services: ["Tokens", "Rare items", "Boosts"], note: "Game" },
+    { name: "Escape Waves For Lucky Blocks", icon: "🌊", services: ["Rares", "Coins", "Blocks"], note: "Roblox" },
+    { name: "EVE Online", icon: "🚀", services: ["Ships", "Injectors", "SKINs"], note: "Contract" },
+    { name: "Fallout 76", icon: "☢️", services: ["Legacies", "Plans", "Apparel"], note: "Vendor" },
+    { name: "Fisch", icon: "🐟", services: ["Rods", "Boats", "Baits"], note: "Gift" },
+    { name: "Fish It!", icon: "🎣", services: ["Rare fish", "Rods", "Baits"], note: "Trade" },
+    { name: "Flee the Facility", icon: "🏃", services: ["Crates", "Gems", "Skins"], note: "Roblox" },
+    { name: "Fortnite", icon: "🎮", services: ["Skins", "Emotes", "Wraps"], note: "Gift" },
+    { name: "Garden Horizons", icon: "🌱", services: ["Seeds", "Tools", "Decor"], note: "Game" },
+    { name: "Garden Tower Defense", icon: "🌻", services: ["Units", "Gems", "Passes"], note: "Roblox" },
+    { name: "Grand Piece Online", icon: "🏴‍☠️", services: ["Fruits", "Weapons", "Accessories"], note: "Trade" },
+    { name: "Grow a Garden", icon: "🌱", services: ["Tokens", "Seeds", "Boosts"], note: "Game" },
+    { name: "Growtopia", icon: "🌳", services: ["Locks", "Seeds", "Wls"], note: "Trade" },
+    { name: "Guild Wars 2", icon: "🗡️", services: ["Legendaries", "Infusions", "Skins"], note: "Mail" },
+    { name: "Hay Day", icon: "🚜", services: ["Diamonds", "Materials", "Decor"], note: "Neighborhood" },
+    { name: "HugoSMP (New)", icon: "🤗", services: ["Coins", "Items", "Pets"], note: "Server" },
+    { name: "Hunty Zombie", icon: "🧟", services: ["Weapons", "Gems", "Skins"], note: "Game" },
+    { name: "Hypershot", icon: "🔫", services: ["Skins", "Guns", "Cosmetics"], note: "Steam" },
+    { name: "Ink Game", icon: "🖋️", services: ["Ink items", "Coins", "Pets"], note: "Trade" },
+    { name: "Jailbreak", icon: "🚔", services: ["Vehicles", "Guns", "Spoilers"], note: "Roblox" },
+    { name: "Jujutsu Infinite", icon: "🔥", services: ["Domain Shards", "Scrolls", "Items"], note: "Direct" },
+    { name: "KAIZEN", icon: "🌀", services: ["Rare items", "Coins", "Weapons"], note: "Game" },
+    { name: "Kick a Lucky Block", icon: "🍀", services: ["Rares", "Coins", "Blocks"], note: "Roblox" },
+    { name: "King Legacy", icon: "👑", services: ["Fruits", "Swords", "Accessories"], note: "Trade" },
+    { name: "Knight Online", icon: "🛡️", services: ["Uniques", "Items", "Gems"], note: "Merchant" },
+    { name: "Knockout", icon: "🥊", services: ["Skins", "Gloves", "Emotes"], note: "Game" },
+    { name: "League of Legends", icon: "🏆", services: ["Skins", "Chromas", "Icons"], note: "Gift" },
+    { name: "Lost Ark", icon: "⚓", services: ["Legendary cards", "Gems", "Engravings"], note: "AH" },
+    { name: "Metin2", icon: "🐉", services: ["Dragon armors", "Weapons", "Pets"], note: "Shop" },
+    { name: "Minecraft Hypixel Items", icon: "⛏️", services: ["Skyblock items", "Dungeon items", "Minions"], note: "AH" },
+    { name: "Mini War (New)", icon: "⚔️", services: ["Units", "Gems", "Passes"], note: "Trade" },
+    { name: "Monopoly Go", icon: "🎲", services: ["Dice rolls", "Stickers", "Cash"], note: "Gift" },
+    { name: "Murder Mystery 2", icon: "🔪", services: ["Godlies", "Ancients", "Knife sets"], note: "Trade" },
+    { name: "Murderers VS Sheriffs DUELS", icon: "🔫", services: ["Skins", "Guns", "Cosmetics"], note: "Game" },
+    { name: "Noob Tower Defense (New)", icon: "🛡️", services: ["Units", "Gems", "Passes"], note: "Roblox" },
+    { name: "Old School RuneScape", icon: "🪙", services: ["Gear", "Rares", "Supplies"], note: "GE" },
+    { name: "Path of Exile", icon: "💀", services: ["Mirrors", "Mageblood", "Flask"], note: "Trade" },
+    { name: "Path of Exile 2", icon: "💀", services: ["Legendaries", "Divines", "Chaos"], note: "Trade" },
+    { name: "Pet Simulator 99", icon: "🐾", services: ["Huge pets", "Eggs", "Boosts"], note: "Mail" },
+    { name: "Pets Go", icon: "🐕", services: ["Diamonds", "Pets", "Boosters"], note: "Trade" },
+    { name: "Plants vs Brainrots", icon: "🌱", services: ["Plants", "Gems", "Seeds"], note: "Game" },
+    { name: "Pokemon Go", icon: "✨", services: ["Shinies", "Legendaries", "Mythicals"], note: "Trade" },
+    { name: "Pokemon Legends: Z-A", icon: "🌟", services: ["Rare mons", "Items", "Balls"], note: "Trade" },
+    { name: "Pokemon TCG Pocket", icon: "🃏", services: ["Cards", "Packs", "Tokens"], note: "Gift" },
+    { name: "Raise Animals", icon: "🐄", services: ["Animals", "Items", "Coins"], note: "Game" },
+    { name: "Re:Rangers X", icon: "🔫", services: ["Weapons", "Skins", "Gamepasses"], note: "Roblox" },
+    { name: "Roblox", icon: "🤖", services: ["Limiteds", "Gamepasses", "Clothes"], note: "Trade" },
+    { name: "Roblox Limiteds", icon: "💎", services: ["Dominus", "Sparkle", "Super"], note: "Hold" },
+    { name: "Roblox Rivals", icon: "⚔️", services: ["Skins", "Weapons", "Emotes"], note: "Game" },
+    { name: "RuneScape 3", icon: "⚔️", services: ["Rares", "T92 gear", "Weapons"], note: "GE" },
+    { name: "Rust", icon: "🛠️", services: ["Skins", "Guns", "Armor"], note: "Steam" },
+    { name: "Sailor Piece", icon: "🏴‍☠️", services: ["Fruits", "Swords", "Accessories"], note: "Trade" },
+    { name: "Slime RNG", icon: "🧪", services: ["Slimes", "Potions", "Boosts"], note: "Game" },
+    { name: "Sniper Arena (New)", icon: "🔫", services: ["Skins", "Weapons", "Emotes"], note: "Roblox" },
+    { name: "Sol's RNG", icon: "☀️", services: ["Auras", "Potions", "Gloves"], note: "Trade" },
+    { name: "Sorcerer Tower Defense", icon: "🧙", services: ["Units", "Gems", "Passes"], note: "Game" },
+    { name: "Spin a Baddie", icon: "🌀", services: ["Rare items", "Coins", "Skins"], note: "Roblox" },
+    { name: "Spongebob Tower Defense", icon: "🧽", services: ["Characters", "Gems", "Passes"], note: "Trade" },
+    { name: "Star Citizen", icon: "🛸", services: ["Ships", "Armor", "Weapons"], note: "In-game" },
+    { name: "Steal a Brainrot", icon: "🧠", services: ["Tokens", "Rare items", "Boosts"], note: "Game" },
+    { name: "Steam", icon: "🎮", services: ["Game gifts", "Items", "Backgrounds"], note: "Trade" },
+    { name: "Summon Heroes", icon: "🦸", services: ["Heroes", "Gems", "Items"], note: "Game" },
+    { name: "Survive Lava for Brainrots", icon: "🌋", services: ["Items", "Coins", "Boosts"], note: "Roblox" },
+    { name: "Swing Obby for Brainrots", icon: "🏃", services: ["Tokens", "Skins", "Boosts"], note: "Game" },
+    { name: "Tap Simulator", icon: "👆", services: ["Tokens", "Rebirths", "Pets"], note: "Gift" },
+    { name: "Team Fortress 2", icon: "🔫", services: ["Unusuals", "Australiums", "Keys"], note: "Steam" },
+    { name: "The Forge", icon: "⚒️", services: ["Forge items", "Coins", "Skins"], note: "Game" },
+    { name: "Tips Jar", icon: "🏺", services: ["Coins", "Gems", "Items"], note: "Roblox" },
+    { name: "Twitch Drops", icon: "📺", services: ["Drops", "Loot", "Emotes"], note: "Link" },
+    { name: "TYPE://SOUL", icon: "👻", services: ["Stand skins", "Shards", "Items"], note: "Trade" },
+    { name: "Universal Tower Defense", icon: "🛡️", services: ["Units", "Gems", "Passes"], note: "Game" },
+    { name: "Volleyball Legends", icon: "🏐", services: ["Skins", "Emotes", "Coins"], note: "Roblox" },
+    { name: "War Tycoon", icon: "🏆", services: ["Vehicles", "Weapons", "Skins"], note: "Game" },
+    { name: "Warframe", icon: "🌀", services: ["Prime sets", "Rivens", "Mods"], note: "Dojo" },
+    { name: "Wizard Alchemy", icon: "🔮", services: ["Potions", "Items", "Formulas"], note: "Trade" },
+    { name: "World of Warcraft", icon: "🛡️", services: ["Mounts", "BoE", "Cosmetics"], note: "AH" },
+    { name: "WoW Classic", icon: "🛡️", services: ["Flask", "Edge", "Materials"], note: "Trade" },
+    { name: "WoW Mists of Pandaria", icon: "🐉", services: ["Remix items", "Gear", "Mounts"], note: "Trade" }
   ];
 
+  // --------------------------------------------------------------
+  // 5. BOOSTING GAMES (3+ items each)
+  // --------------------------------------------------------------
   const boostingGames = [
-    { name: "Anime Vanguards", icon: "🛡️", services: ["Rank boost", "Missions"], note: "Piloted" },
-    { name: "Apex Legends", icon: "🦍", services: ["Ranked boost (Predator)", "Badges"], note: "Duo" },
-    { name: "Arc Raiders", icon: "🚀", services: ["Level boost"], note: "Safe" },
-    { name: "Arena Breakout", icon: "🔫", services: ["Rank boost"], note: "Piloted" },
-    { name: "Arena Breakout: Infinite", icon: "🔫", services: ["Legend rank"], note: "VPN" },
-    { name: "Battlefield", icon: "🔫", services: ["Rank boost"], note: "Carry" },
-    { name: "Black Desert Online", icon: "🏜️", services: ["Leveling 1-61", "Skill points"], note: "Piloted" },
-    { name: "Blox Fruits", icon: "🍎", services: ["Leveling", "Boss carries"], note: "Private" },
-    { name: "Brawl Stars", icon: "⭐", services: ["Trophy boost", "Ranked"], note: "Squad" },
-    { name: "Call of Duty", icon: "🔫", services: ["Camo unlock", "Ranked play"], note: "Bot lobbies" },
-    { name: "Clash of Clans", icon: "🏰", services: ["Trophy push", "Legends"], note: "Cloud" },
-    { name: "Clash Royale", icon: "👑", services: ["Path of Legends"], note: "Carry" },
-    { name: "Counter-Strike 2", icon: "🔫", services: ["Premier rating", "Faceit level"], note: "Piloted" },
-    { name: "Dead By Daylight", icon: "🔪", services: ["Rank boost", "Iridescent"], note: "SWF" },
-    { name: "Deadlock", icon: "🔫", services: ["MMR boost"], note: "Piloted" },
-    { name: "Delta Force", icon: "🎯", services: ["Rank boost"], note: "Squad" },
-    { name: "Destiny 2", icon: "🌌", services: ["Trials flawless", "Comp rank"], note: "Recov" },
-    { name: "Diablo 4", icon: "😈", services: ["Leveling 1-100", "Pit carry"], note: "Group" },
-    { name: "DonutSMP", icon: "🍩", services: ["Level boost"], note: "Server" },
-    { name: "Dota 2", icon: "⚔️", services: ["MMR boost", "Medal"], note: "Party" },
-    { name: "EA Sports FC", icon: "⚽", services: ["Division rivals", "WL carry"], note: "Share play" },
-    { name: "Escape from Tarkov", icon: "🔫", services: ["Kappa quests", "Leveling"], note: "Piloted" },
-    { name: "Fisch", icon: "🐟", services: ["Level boost", "Fishing"], note: "Private" },
-    { name: "Fortnite", icon: "🎮", services: ["Ranked boost (Unreal)", "Victory royales"], note: "Duo" },
-    { name: "Genshin Impact", icon: "⭐", services: ["Account leveling", "Abyss carries"], note: "Co-op" },
-    { name: "League of Legends", icon: "🏆", services: ["Ranked solo/duo", "Placements"], note: "Duo/piloted" },
-    { name: "League of Legends: Wild Rift", icon: "📱", services: ["Rank boost"], note: "Duo" },
-    { name: "Marvel Rivals", icon: "🦸", services: ["Competitive rank"], note: "Stack" },
-    { name: "Minecraft", icon: "⛏️", services: ["Skyblock carries", "Bedwars"], note: "Party" },
-    { name: "Mobile Legends", icon: "📱", services: ["Rank boost (Mythical Glory)"], note: "Squad" },
-    { name: "New World", icon: "🌎", services: ["Weapon leveling", "Expedition"], note: "Group" },
-    { name: "Old School RuneScape", icon: "🪙", services: ["Skill leveling", "Quest cape"], note: "Piloted" },
-    { name: "Overwatch", icon: "🦸", services: ["Competitive rank", "Top500"], note: "Stack" },
-    { name: "Path of Exile", icon: "💀", services: ["Leveling", "Boss carries"], note: "Party" },
-    { name: "Path of Exile 2", icon: "💀", services: ["Campaign rush", "Endgame"], note: "Group" },
-    { name: "Pokemon Go", icon: "✨", services: ["Leveling", "Raid carries"], note: "Spoof" },
-    { name: "Rainbow Six Siege X", icon: "🔫", services: ["Rank boost (Champion)"], note: "Piloted" },
-    { name: "Roblox", icon: "🤖", services: ["Gamepass unlocks", "Leaderboard"], note: "Script" },
-    { name: "Rocket League", icon: "🚗", services: ["Rank boost (SSL)"], note: "Party" },
-    { name: "RuneScape 3", icon: "⚔️", services: ["Skill leveling", "Boss kills"], note: "Piloted" },
-    { name: "Rust", icon: "🛠️", services: ["BP unlocks", "Raids"], note: "Clan" },
-    { name: "Teamfight Tactics", icon: "♟️", services: ["LP boost", "Hyper roll"], note: "Piloted" },
-    { name: "The Division 2", icon: "🔫", services: ["SHD leveling"], note: "Group" },
-    { name: "The First Descendant", icon: "👾", services: ["Level boost", "Boss"], note: "Party" },
-    { name: "The Forge", icon: "⚒️", services: ["Rank boost"], note: "Game" },
-    { name: "Throne and Liberty", icon: "👑", services: ["Leveling 1-50", "Contracts"], note: "Group" },
-    { name: "Valorant", icon: "🎯", services: ["Rank boost (Radiant)", "Act rank"], note: "Piloted" },
-    { name: "War Thunder", icon: "✈️", services: ["Vehicle unlock", "Silver Lions"], note: "Squad" },
-    { name: "Warframe", icon: "🌀", services: ["Mastery rank", "Focus farming"], note: "Party" },
-    { name: "Where Winds Meet", icon: "🍃", services: ["Level boost"], note: "Co-op" },
-    { name: "World of Warcraft", icon: "🛡️", services: ["Mythic+ runs", "Gladiator boost"], note: "Piloted" },
-    { name: "WoW Classic", icon: "🛡️", services: ["Leveling 1-60", "PvP rank"], note: "Piloted" },
-    { name: "WoW Mists of Pandaria", icon: "🐉", services: ["Remix leveling"], note: "Boost" }
+    { name: "Anime Vanguards", icon: "🛡️", services: ["Rank boost", "Missions", "Gem farming"], note: "Piloted" },
+    { name: "Apex Legends", icon: "🦍", services: ["Ranked boost (Predator)", "Badges", "BP leveling"], note: "Duo" },
+    { name: "Arc Raiders", icon: "🚀", services: ["Level boost", "Battle Pass", "Weapon levels"], note: "Safe" },
+    { name: "Arena Breakout", icon: "🔫", services: ["Rank boost", "Leveling", "Stash unlocking"], note: "Piloted" },
+    { name: "Arena Breakout: Infinite", icon: "🔫", services: ["Legend rank", "Camo unlock", "BP"], note: "VPN" },
+    { name: "Battlefield", icon: "🔫", services: ["Rank boost", "Weapon mastery", "BP"], note: "Carry" },
+    { name: "Black Desert Online", icon: "🏜️", services: ["Leveling 1-61", "Skill points", "AFK training"], note: "Piloted" },
+    { name: "Blox Fruits", icon: "🍎", services: ["Leveling", "Boss carries", "Fruit farming"], note: "Private" },
+    { name: "Brawl Stars", icon: "⭐", services: ["Trophy boost", "Ranked", "Mastery"], note: "Squad" },
+    { name: "Call of Duty", icon: "🔫", services: ["Camo unlock", "Ranked play", "BP tier"], note: "Bot lobbies" },
+    { name: "Clash of Clans", icon: "🏰", services: ["Trophy push", "Legends", "Builder base"], note: "Cloud" },
+    { name: "Clash Royale", icon: "👑", services: ["Path of Legends", "Crowns", "Wins"], note: "Carry" },
+    { name: "Counter-Strike 2", icon: "🔫", services: ["Premier rating", "Faceit level", "Wingman"], note: "Piloted" },
+    { name: "Dead By Daylight", icon: "🔪", services: ["Rank boost", "Iridescent", "Tome"], note: "SWF" },
+    { name: "Deadlock", icon: "🔫", services: ["MMR boost", "Wins", "BP"], note: "Piloted" },
+    { name: "Delta Force", icon: "🎯", services: ["Rank boost", "BP tier", "Weapon levels"], note: "Squad" },
+    { name: "Destiny 2", icon: "🌌", services: ["Trials flawless", "Comp rank", "Raid carries"], note: "Recov" },
+    { name: "Diablo 4", icon: "😈", services: ["Leveling 1-100", "Pit carry", "Boss mats"], note: "Group" },
+    { name: "DonutSMP", icon: "🍩", services: ["Level boost", "Coins", "PvP wins"], note: "Server" },
+    { name: "Dota 2", icon: "⚔️", services: ["MMR boost", "Medal", "Battle Cup"], note: "Party" },
+    { name: "EA Sports FC", icon: "⚽", services: ["Division rivals", "WL carry", "SBC"], note: "Share play" },
+    { name: "Escape from Tarkov", icon: "🔫", services: ["Kappa quests", "Leveling", "Traders"], note: "Piloted" },
+    { name: "Fisch", icon: "🐟", services: ["Level boost", "Fishing", "Rod upgrades"], note: "Private" },
+    { name: "Fortnite", icon: "🎮", services: ["Ranked boost (Unreal)", "Victory royales", "BP XP"], note: "Duo" },
+    { name: "Genshin Impact", icon: "⭐", services: ["Account leveling", "Abyss carries", "Exploration"], note: "Co-op" },
+    { name: "League of Legends", icon: "🏆", services: ["Ranked solo/duo", "Placements", "LP gains"], note: "Duo/piloted" },
+    { name: "League of Legends: Wild Rift", icon: "📱", services: ["Rank boost", "Wins", "Mastery"], note: "Duo" },
+    { name: "Marvel Rivals", icon: "🦸", services: ["Competitive rank", "BP", "Hero mastery"], note: "Stack" },
+    { name: "Minecraft", icon: "⛏️", services: ["Skyblock carries", "Bedwars", "Dungeon"], note: "Party" },
+    { name: "Mobile Legends", icon: "📱", services: ["Rank boost (Mythical Glory)", "Wins", "WR"], note: "Squad" },
+    { name: "New World", icon: "🌎", services: ["Weapon leveling", "Expedition", "Trade"], note: "Group" },
+    { name: "Old School RuneScape", icon: "🪙", services: ["Skill leveling", "Quest cape", "Boss KC"], note: "Piloted" },
+    { name: "Overwatch", icon: "🦸", services: ["Competitive rank", "Top500", "Placements"], note: "Stack" },
+    { name: "Path of Exile", icon: "💀", services: ["Leveling", "Boss carries", "Lab"], note: "Party" },
+    { name: "Path of Exile 2", icon: "💀", services: ["Campaign rush", "Endgame", "Map"], note: "Group" },
+    { name: "Pokemon Go", icon: "✨", services: ["Leveling", "Raid carries", "Candy farm"], note: "Spoof" },
+    { name: "Rainbow Six Siege X", icon: "🔫", services: ["Rank boost (Champion)", "BP", "Renown"], note: "Piloted" },
+    { name: "Roblox", icon: "🤖", services: ["Gamepass unlocks", "Leaderboard", "Boosts"], note: "Script" },
+    { name: "Rocket League", icon: "🚗", services: ["Rank boost (SSL)", "Season rewards", "Wins"], note: "Party" },
+    { name: "RuneScape 3", icon: "⚔️", services: ["Skill leveling", "Boss kills", "Reaper"], note: "Piloted" },
+    { name: "Rust", icon: "🛠️", services: ["BP unlocks", "Raids", "Heli"], note: "Clan" },
+    { name: "Teamfight Tactics", icon: "♟️", services: ["LP boost", "Hyper roll", "Double Up"], note: "Piloted" },
+    { name: "The Division 2", icon: "🔫", services: ["SHD leveling", "Expertise", "Raids"], note: "Group" },
+    { name: "The First Descendant", icon: "👾", services: ["Level boost", "Boss", "Research"], note: "Party" },
+    { name: "The Forge", icon: "⚒️", services: ["Rank boost", "BP", "Weapon levels"], note: "Game" },
+    { name: "Throne and Liberty", icon: "👑", services: ["Leveling 1-50", "Contracts", "Gear"], note: "Group" },
+    { name: "Valorant", icon: "🎯", services: ["Rank boost (Radiant)", "Act rank", "Contracts"], note: "Piloted" },
+    { name: "War Thunder", icon: "✈️", services: ["Vehicle unlock", "Silver Lions", "RP"], note: "Squad" },
+    { name: "Warframe", icon: "🌀", services: ["Mastery rank", "Focus farming", "Steel Path"], note: "Party" },
+    { name: "Where Winds Meet", icon: "🍃", services: ["Level boost", "Story", "Gear"], note: "Co-op" },
+    { name: "World of Warcraft", icon: "🛡️", services: ["Mythic+ runs", "Gladiator boost", "Raid"], note: "Piloted" },
+    { name: "WoW Classic", icon: "🛡️", services: ["Leveling 1-60", "PvP rank", "Gold farm"], note: "Piloted" },
+    { name: "WoW Mists of Pandaria", icon: "🐉", services: ["Remix leveling", "Cloak", "Gear"], note: "Boost" }
   ];
 
+  // --------------------------------------------------------------
+  // 6. GIFT CARDS (3+ items each)
+  // --------------------------------------------------------------
   const giftcardsGames = [
-    { name: "Amazon Gift Cards", icon: "📦", services: ["eGift cards ($5-$500)"], note: "Digital" },
-    { name: "Apple Gift Cards", icon: "🍎", services: ["App Store codes"], note: "Email" },
-    { name: "Blizzard Gift Cards", icon: "🎮", services: ["Battle.net balance"], note: "Code" },
-    { name: "CD Keys", icon: "🔑", services: ["Game keys"], note: "Instant" },
-    { name: "Discord Nitro", icon: "💬", services: ["Nitro Basic", "Nitro"], note: "Gift" },
-    { name: "ExitLag Gift Cards", icon: "🌐", services: ["ExitLag subscription"], note: "Code" },
-    { name: "Fortnite Gift Cards", icon: "🎮", services: ["V-Bucks cards"], note: "Digital" },
-    { name: "Garena Free Fire Gift Cards", icon: "🔥", services: ["Diamonds cards"], note: "Code" },
-    { name: "Google Play Gift Cards", icon: "📱", services: ["Play credit"], note: "Worldwide" },
-    { name: "League of Legends Gift Cards", icon: "🏆", services: ["RP cards"], note: "Code" },
-    { name: "Netflix Gift Cards", icon: "📺", services: ["Netflix subscription"], note: "Code" },
-    { name: "Nintendo Gift Cards", icon: "🎮", services: ["eShop credit"], note: "Region" },
-    { name: "PlayStation Gift Card", icon: "🎮", services: ["PSN wallet"], note: "Digital" },
-    { name: "PUBG Mobile Gift Cards", icon: "🪂", services: ["UC cards"], note: "ID" },
-    { name: "Razer Gold", icon: "🟢", services: ["Razer Gold PIN"], note: "Multi-game" },
-    { name: "Roblox Gift Cards", icon: "🤖", services: ["Robux cards"], note: "Digital" },
-    { name: "Runescape Membership", icon: "📜", services: ["Bonds", "Membership"], note: "Code" },
-    { name: "Steam Game Accounts", icon: "🎮", services: ["Accounts with games"], note: "Full" },
-    { name: "Steam Gift Cards", icon: "🎮", services: ["Steam wallet"], note: "Global" },
-    { name: "Valorant Gift Cards", icon: "🎯", services: ["VP cards"], note: "Riot" },
-    { name: "Xbox Gift Cards", icon: "🎮", services: ["Xbox credit"], note: "Code" }
+    { name: "Amazon Gift Cards", icon: "📦", services: ["eGift cards ($5-$500)", "Prime codes", "Digital credits"], note: "Digital" },
+    { name: "Apple Gift Cards", icon: "🍎", services: ["App Store codes", "iTunes", "Apple ID"], note: "Email" },
+    { name: "Blizzard Gift Cards", icon: "🎮", services: ["Battle.net balance", "WoW Game Time", "Overwatch Coins"], note: "Code" },
+    { name: "CD Keys", icon: "🔑", services: ["Game keys", "DLC codes", "Software licenses"], note: "Instant" },
+    { name: "Discord Nitro", icon: "💬", services: ["Nitro Basic", "Nitro", "Server Boosts"], note: "Gift" },
+    { name: "ExitLag Gift Cards", icon: "🌐", services: ["ExitLag subscription", "VPN passes", "Gaming VPN"], note: "Code" },
+    { name: "Fortnite Gift Cards", icon: "🎮", services: ["V-Bucks cards", "Crew Pack codes", "Skin bundles"], note: "Digital" },
+    { name: "Garena Free Fire Gift Cards", icon: "🔥", services: ["Diamonds cards", "Elite Pass", "Draw tickets"], note: "Code" },
+    { name: "Google Play Gift Cards", icon: "📱", services: ["Play credit", "YouTube Premium", "Google One"], note: "Worldwide" },
+    { name: "League of Legends Gift Cards", icon: "🏆", services: ["RP cards", "Event passes", "Skin codes"], note: "Code" },
+    { name: "Netflix Gift Cards", icon: "📺", services: ["Netflix subscription", "Gift codes", "Prepaid"], note: "Code" },
+    { name: "Nintendo Gift Cards", icon: "🎮", services: ["eShop credit", "Switch Online", "DLC codes"], note: "Region" },
+    { name: "PlayStation Gift Card", icon: "🎮", services: ["PSN wallet", "PS Plus", "PS Store codes"], note: "Digital" },
+    { name: "PUBG Mobile Gift Cards", icon: "🪂", services: ["UC cards", "Royale Pass", "Draw tickets"], note: "ID" },
+    { name: "Razer Gold", icon: "🟢", services: ["Razer Gold PIN", "Silver", "Game credits"], note: "Multi-game" },
+    { name: "Roblox Gift Cards", icon: "🤖", services: ["Robux cards", "Premium codes", "Digital items"], note: "Digital" },
+    { name: "Runescape Membership", icon: "📜", services: ["Bonds", "Membership codes", "Premier Club"], note: "Code" },
+    { name: "Steam Game Accounts", icon: "🎮", services: ["Accounts with games", "Gift cards", "Wallet codes"], note: "Full" },
+    { name: "Steam Gift Cards", icon: "🎮", services: ["Steam wallet", "Digital codes", "Global"], note: "Instant" },
+    { name: "Valorant Gift Cards", icon: "🎯", services: ["VP cards", "Radianite points", "BP codes"], note: "Riot" },
+    { name: "Xbox Gift Cards", icon: "🎮", services: ["Xbox credit", "Game Pass", "Live Gold"], note: "Code" }
   ];
 
   function renderCategory(containerId, dataArray) {
@@ -756,7 +830,6 @@
   renderCategory('boosting-grid', boostingGames);
   renderCategory('giftcards-grid', giftcardsGames);
 
-  // tab switching
   const sections = {
     currency: document.getElementById('currency-section'),
     accounts: document.getElementById('accounts-section'),
