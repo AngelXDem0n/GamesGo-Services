@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>HaloBoost | Complete Game Services Catalog</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Google Fonts: Poppins (clean, modern, premium) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -14,7 +15,7 @@
     }
     body {
       background: #0a0c15;
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
       color: #e2e8f0;
       scroll-behavior: smooth;
     }
@@ -87,7 +88,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
     .cat-tab i {
       font-size: 1rem;
@@ -248,6 +249,7 @@
       color: #7dd3fc;
       font-weight: 500;
       letter-spacing: 1px;
+      font-family: 'Poppins', sans-serif;
     }
     .contact-footer {
       background: #0f172a;
@@ -278,6 +280,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
+      font-family: 'Poppins', sans-serif;
     }
     .contact-link:hover {
       background: #0ea5e9;
@@ -328,7 +331,7 @@
   <footer>© 2025 HaloBoost — services catalog. Contact us to order.</footer>
 </div>
 <script>
-  // ------------------- CURRENCY (full list) -------------------
+  // ------------------- CURRENCY (full list - 72 games) -------------------
   const currencyGames = [
     { name: "8 Ball Pool Coins", icon: "🎱", services: ["Pool Coins (millions)", "Cash / Legendary Boxes", "Instant top-up"], note: "ID top-up" },
     { name: "Aion 2 Kinah", icon: "👾", services: ["Kinah", "High-end gear", "Enchantment Stones"], note: "Direct trade" },
@@ -403,7 +406,7 @@
     { name: "WoW Classic Era Gold", icon: "🛡️", services: ["Classic Gold", "Materials", "Gear"], note: "Neutral AH" },
     { name: "WoW Mists of Pandaria Gold", icon: "🐉", services: ["MoP Gold", "Mounts", "Gear"], note: "Trade system" }
   ];
-  // ------------------- ACCOUNTS (full list) -------------------
+  // ------------------- ACCOUNTS (full list - 70 games) -------------------
   const accountsGames = [
     { name: "8 Ball Pool", icon: "🎱", services: ["High level accounts", "Legendary cues", "High win rate"], note: "Email access" },
     { name: "Aion 2", icon: "👾", services: ["Endgame characters", "High Kinah", "Rare gear"], note: "Full transfer" },
@@ -478,7 +481,7 @@
     { name: "WoW Classic Era", icon: "🛡️", services: ["Naxx geared", "High Gold", "Materials"], note: "BNet" },
     { name: "WoW Mists of Pandaria", icon: "🐉", services: ["MoP remix", "Gear", "Mounts"], note: "Transfer" }
   ];
-  // ------------------- TOP UPS (full list) -------------------
+  // ------------------- TOP UPS (full list - 70+ games) -------------------
   const topupsGames = [
     { name: "8 Ball Pool Cash", icon: "🎱", services: ["Cash", "Pool Coins", "Legendary Boxes"], note: "ID top-up" },
     { name: "99 Nights in the Forest Diamonds", icon: "🌲", services: ["Diamonds", "Premium Pass", "Event currency"], note: "UID top-up" },
@@ -553,7 +556,7 @@
     { name: "ZEPETO ZEMs", icon: "👗", services: ["ZEMs", "Premium items", "VIP"], note: "User" },
     { name: "Zula Gold", icon: "🔫", services: ["Gold", "Battle Pass", "Weapons"], note: "ID" }
   ];
-  // ------------------- ITEMS (full list) -------------------
+  // ------------------- ITEMS (full list - 105+ games) -------------------
   const itemsGames = [
     { name: "A Universal Time", icon: "⏳", services: ["Stand skins", "Items", "Blessings"], note: "Roblox" },
     { name: "Abyss", icon: "🌊", services: ["Weapons", "Cursed items", "Runes"], note: "Trade" },
@@ -690,7 +693,7 @@
     { name: "WoW Classic", icon: "🛡️", services: ["Flask", "Edge", "Materials"], note: "Trade" },
     { name: "WoW Mists of Pandaria", icon: "🐉", services: ["Remix items", "Gear", "Mounts"], note: "Trade" }
   ];
-  // ------------------- BOOSTING (full list) -------------------
+  // ------------------- BOOSTING (full list - 52 games) -------------------
   const boostingGames = [
     { name: "Anime Vanguards", icon: "🛡️", services: ["Rank boost", "Missions", "Gem farming"], note: "Piloted" },
     { name: "Apex Legends", icon: "🦍", services: ["Ranked boost (Predator)", "Badges", "BP leveling"], note: "Duo" },
@@ -746,7 +749,7 @@
     { name: "WoW Classic", icon: "🛡️", services: ["Leveling 1-60", "PvP rank", "Gold farm"], note: "Piloted" },
     { name: "WoW Mists of Pandaria", icon: "🐉", services: ["Remix leveling", "Cloak", "Gear"], note: "Boost" }
   ];
-  // ------------------- GIFT CARDS (full list) -------------------
+  // ------------------- GIFT CARDS (full list - 21 games) -------------------
   const giftcardsGames = [
     { name: "Amazon Gift Cards", icon: "📦", services: ["eGift cards ($5-$500)", "Prime codes", "Digital credits"], note: "Digital" },
     { name: "Apple Gift Cards", icon: "🍎", services: ["App Store codes", "iTunes", "Apple ID"], note: "Email" },
@@ -775,7 +778,7 @@
     const container = document.getElementById(containerId);
     if (!container) return;
     container.innerHTML = '';
-    dataArray.forEach((game, idx) => {
+    dataArray.forEach(game => {
       const card = document.createElement('div');
       card.className = 'game-card';
       let servicesHtml = '';
