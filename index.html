@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BoostHub | Game Services Catalog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>NexusBoost | Ultimate Game Services Catalog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -13,386 +15,491 @@
 
     body {
       background: #0a0c15;
-      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', 'Segoe UI', sans-serif;
       color: #edf2f8;
-      padding: 2rem 1.5rem;
+      scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #8b5cf6;
+      border-radius: 10px;
     }
 
     .container {
-      max-width: 1400px;
+      max-width: 1600px;
       margin: 0 auto;
+      padding: 2rem 2rem 3rem;
     }
 
-    /* Header */
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #ffffff, #b77cff);
+    /* Hero animation */
+    @keyframes fadeSlideDown {
+      0% { opacity: 0; transform: translateY(-30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      animation: fadeSlideDown 0.7s ease-out;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #FFFFFF, #c084fc, #8b5cf6);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-align: center;
-      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
     }
-
-    .tagline {
-      text-align: center;
-      color: #8b9bb5;
-      margin-bottom: 2.5rem;
+    .hero p {
+      color: #94a3b8;
       font-size: 1.1rem;
+      margin-top: 0.5rem;
     }
 
-    /* Category Buttons */
-    .buttons-grid {
+    /* Category Tabs */
+    .category-tabs {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1rem;
+      gap: 0.8rem;
       margin-bottom: 2.5rem;
+      position: sticky;
+      top: 10px;
+      background: rgba(10,12,21,0.8);
+      backdrop-filter: blur(12px);
+      padding: 0.8rem;
+      border-radius: 60px;
+      z-index: 20;
     }
-
-    .cat-btn {
+    .cat-tab {
       background: #1e293b;
       border: none;
-      border-radius: 60px;
-      padding: 0.75rem 1.8rem;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #e2e8f0;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      font-family: inherit;
-    }
-
-    .cat-btn:hover {
-      background: #334155;
-      transform: translateY(-2px);
-    }
-
-    .cat-btn.active {
-      background: #8b5cf6;
-      color: white;
-      box-shadow: 0 4px 12px rgba(139,92,246,0.4);
-    }
-
-    /* Content panels */
-    .category-panel {
-      display: none;
-      background: #0f172a;
-      border-radius: 32px;
-      padding: 1.8rem;
-      border: 1px solid #2d3a5e;
-      animation: fade 0.25s ease;
-    }
-
-    .category-panel.active {
-      display: block;
-    }
-
-    @keyframes fade {
-      from { opacity: 0; transform: translateY(8px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-
-    .category-panel h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #8b5cf6;
-      display: inline-block;
-    }
-
-    /* Multi-column lists */
-    .game-list {
-      columns: 4;
-      column-gap: 2rem;
-      list-style: none;
-      margin-top: 1rem;
-    }
-
-    .game-list li {
-      break-inside: avoid;
-      margin-bottom: 0.6rem;
-      padding-left: 1.3rem;
-      position: relative;
-      font-size: 0.95rem;
-      color: #cbd5e6;
-    }
-
-    .game-list li::before {
-      content: "▹";
-      position: absolute;
-      left: 0;
-      color: #a78bfa;
-      font-size: 0.9rem;
-    }
-
-    /* responsive columns */
-    @media (max-width: 1000px) {
-      .game-list { columns: 3; }
-    }
-    @media (max-width: 700px) {
-      .game-list { columns: 2; }
-      .buttons-grid { gap: 0.7rem; }
-      .cat-btn { padding: 0.5rem 1.2rem; font-size: 0.9rem; }
-    }
-    @media (max-width: 480px) {
-      .game-list { columns: 1; }
-    }
-
-    /* Contact section */
-    .contact-section {
-      background: #0f172a;
-      border-radius: 28px;
-      padding: 1.8rem;
-      margin-top: 2.5rem;
-      text-align: center;
-      border: 1px solid #2d3a5e;
-    }
-
-    .contact-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 1.2rem;
-    }
-
-    .contact-link {
-      background: #1e293b;
-      padding: 0.6rem 1.4rem;
+      padding: 0.7rem 1.6rem;
       border-radius: 40px;
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #cbd5e6;
+      cursor: pointer;
       transition: 0.2s;
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      font-family: 'Inter', sans-serif;
+    }
+    .cat-tab i {
+      font-size: 1rem;
+    }
+    .cat-tab:hover {
+      background: #334155;
+      transform: translateY(-2px);
+      color: white;
+    }
+    .cat-tab.active {
+      background: #8b5cf6;
+      color: white;
+      box-shadow: 0 6px 14px rgba(139,92,246,0.35);
     }
 
+    /* Game Grid Layout */
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.8rem;
+      margin-top: 1rem;
+    }
+
+    /* Game Card */
+    .game-card {
+      background: #0f172a;
+      border-radius: 28px;
+      border: 1px solid #2d3a5e;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      animation: cardReveal 0.45s forwards;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .game-card:hover {
+      transform: translateY(-6px);
+      border-color: #8b5cf6;
+      box-shadow: 0 20px 30px -12px rgba(139,92,246,0.25);
+    }
+    @keyframes cardReveal {
+      0% { opacity: 0; transform: translateY(18px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-header {
+      padding: 1rem 1.2rem 0.6rem;
+      border-bottom: 1px solid #1e2a44;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(145deg, #111827, #0b0f17);
+    }
+    .game-icon {
+      width: 46px;
+      height: 46px;
+      background: #1e293b;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+    }
+    .game-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+    }
+    .card-body {
+      padding: 1.2rem 1.4rem 1.4rem;
+    }
+    .service-list {
+      list-style: none;
+      margin-bottom: 1rem;
+    }
+    .service-list li {
+      font-size: 0.85rem;
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      color: #cbd5f0;
+      line-height: 1.35;
+    }
+    .service-list li i {
+      color: #a78bfa;
+      font-size: 0.7rem;
+      width: 18px;
+      margin-top: 3px;
+    }
+    .badge {
+      background: #1e293b;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #b9c3da;
+      margin-top: 6px;
+    }
+    .contact-dm {
+      margin-top: 1rem;
+      padding-top: 0.8rem;
+      border-top: 1px dashed #2d3a5e;
+      font-size: 0.7rem;
+      color: #7c8db0;
+      text-align: center;
+    }
+
+    /* section switching */
+    .category-section {
+      display: none;
+      animation: fadeSection 0.35s ease;
+    }
+    .category-section.active-category {
+      display: block;
+    }
+    @keyframes fadeSection {
+      from { opacity: 0; transform: translateX(8px);}
+      to { opacity: 1; transform: translateX(0);}
+    }
+
+    /* Contact Footer */
+    .contact-footer {
+      background: #0f172a;
+      border-radius: 36px;
+      padding: 2rem;
+      margin-top: 3rem;
+      text-align: center;
+      border: 1px solid #2d3a5e;
+    }
+    .contact-buttons {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 1.2rem 0 1rem;
+    }
+    .contact-link {
+      background: #1e293b;
+      padding: 0.7rem 1.8rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      color: white;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
     .contact-link:hover {
       background: #8b5cf6;
       transform: scale(1.02);
     }
-
     footer {
-      text-align: center;
       margin-top: 2rem;
-      font-size: 0.75rem;
-      color: #4a5a7a;
+      text-align: center;
+      font-size: 0.7rem;
+      color: #475569;
+    }
+    @media (max-width: 760px) {
+      .container { padding: 1rem; }
+      .hero h1 { font-size: 2rem; }
+      .games-grid { grid-template-columns: 1fr; }
+      .cat-tab { padding: 0.45rem 1rem; font-size: 0.8rem; }
     }
   </style>
 </head>
 <body>
 <div class="container">
-  <h1>⚡ BOOSTHUB</h1>
-  <div class="tagline">All Games • All Services • One Place</div>
-
-  <!-- Category Buttons -->
-  <div class="buttons-grid">
-    <button class="cat-btn" data-cat="currency">💰 Currency</button>
-    <button class="cat-btn" data-cat="accounts">🎮 Accounts</button>
-    <button class="cat-btn" data-cat="topups">📱 Top Ups</button>
-    <button class="cat-btn" data-cat="items">✨ Items</button>
-    <button class="cat-btn" data-cat="boosting">⚡ Boosting</button>
-    <button class="cat-btn" data-cat="giftcards">🎁 Gift Cards</button>
+  <div class="hero">
+    <h1><i class="fas fa-bolt"></i> NEXUSBOOST</h1>
+    <p>All games • All regions • 24/7 instant delivery</p>
   </div>
 
-  <!-- CURRENCY PANEL -->
-  <div id="currency" class="category-panel">
-    <h2>💰 In-Game Currency</h2>
-    <ul class="game-list">
-      <li>8 Ball Pool Coins</li><li>Aion 2 Kinah</li><li>Albion Online Silver</li><li>Arc Raiders Coins</li>
-      <li>Black Desert Online Silver</li><li>Blade & Soul NEO Divine Gems</li><li>Blade Ball Tokens</li>
-      <li>Creatures of Sonaria Mushrooms</li><li>Dark and Darker Gold</li><li>DC Universe Online Cash</li>
-      <li>Delta Force Tekniq Alloy</li><li>Diablo 4 Gold</li><li>Digimon Super Rumble Bits</li><li>Dofus Kamas</li>
-      <li>DonutSMP Money</li><li>Dragon Adventures Coins</li><li>Dreadmyst Gold</li><li>Dune: Awakening Solaris</li>
-      <li>EA Sports FC Coins</li><li>Elden Ring Runes</li><li>Elder Scrolls Online Gold</li>
-      <li>Escape From Tarkov Roubles</li><li>Escape Tsunami For Brainrots Trade Tokens</li><li>EVE Echoes ISK</li>
-      <li>EVE Online ISK</li><li>Fallout 76 Caps</li><li>Farever Gold</li><li>Final Fantasy XI Gil</li>
-      <li>Final Fantasy XIV Gil</li><li>Fisch Money</li><li>Fix It Up Money</li><li>Forza Horizon 5 Credits</li>
-      <li>Forza Horizon 6 Credits</li><li>Grow a Garden Tokens</li><li>Growtopia Locks</li><li>Guild Wars 2 Gold</li>
-      <li>Knight Online Gold Bars</li><li>Last Epoch Gold</li><li>Lost Ark Gold</li><li>Madden NFL Coins</li>
-      <li>MapleStory Mesos</li><li>Metin2 Won</li><li>Minecraft Hypixel Coins</li><li>MLB: The Show Stubs</li>
-      <li>Mortal Online 2 Gold</li><li>New World Coins</li><li>Old School RuneScape Gold</li>
-      <li>Path of Exile 2 Currency</li><li>Path of Exile Currency</li><li>Pet Simulator 99 Gems</li>
-      <li>Pets Go Diamonds</li><li>Pixel Worlds Byte Coins</li><li>Pokemon Go Stardust</li>
-      <li>Rise Online Gold Bars</li><li>Roblox Robux</li><li>Royale High Diamonds</li><li>RuneScape 3 Gold</li>
-      <li>Runescape Bonds</li><li>Standoff 2 Gold</li><li>Star Citizen aUEC</li><li>SWTOR Credits</li>
-      <li>Tap Simulator Tokens</li><li>Temtem Pansun</li><li>The Quinfall Gold Coins</li><li>Throne and Liberty Lucent</li>
-      <li>Tibia Gold</li><li>Toilet Tower Defense Gems</li><li>Torchlight: Infinite Flame Elementium</li>
-      <li>Trove Flux</li><li>Warframe Platinum</li><li>World of Warcraft Gold</li><li>WoW Classic Era Gold</li>
-      <li>WoW Mists of Pandaria Gold</li>
-    </ul>
+  <!-- Category Tabs -->
+  <div class="category-tabs">
+    <button class="cat-tab active" data-cat="currency"><i class="fas fa-coins"></i> Currency</button>
+    <button class="cat-tab" data-cat="accounts"><i class="fas fa-user-astronaut"></i> Accounts</button>
+    <button class="cat-tab" data-cat="topups"><i class="fas fa-charging-station"></i> Top Ups</button>
+    <button class="cat-tab" data-cat="items"><i class="fas fa-cubes"></i> Items</button>
+    <button class="cat-tab" data-cat="boosting"><i class="fas fa-chart-line"></i> Boosting</button>
+    <button class="cat-tab" data-cat="giftcards"><i class="fas fa-gift"></i> Gift Cards</button>
   </div>
 
-  <!-- ACCOUNTS PANEL -->
-  <div id="accounts" class="category-panel">
-    <h2>🎮 Accounts for Sale</h2>
-    <ul class="game-list">
-      <li>8 Ball Pool Coins</li><li>Aion 2 Kinah</li><li>Albion Online Silver</li><li>Arc Raiders Coins</li>
-      <li>Black Desert Online Silver</li><li>Blade & Soul NEO Divine Gems</li><li>Blade Ball Tokens</li>
-      <li>Creatures of Sonaria Mushrooms</li><li>Dark and Darker Gold</li><li>DC Universe Online Cash</li>
-      <li>Delta Force Tekniq Alloy</li><li>Diablo 4 Gold</li><li>Digimon Super Rumble Bits</li><li>Dofus Kamas</li>
-      <li>DonutSMP Money</li><li>Dragon Adventures Coins</li><li>Dreadmyst Gold</li><li>Dune: Awakening Solaris</li>
-      <li>EA Sports FC Coins</li><li>Elden Ring Runes</li><li>Elder Scrolls Online Gold</li>
-      <li>Escape From Tarkov Roubles</li><li>Escape Tsunami For Brainrots Trade Tokens</li><li>EVE Echoes ISK</li>
-      <li>EVE Online ISK</li><li>Fallout 76 Caps</li><li>Farever Gold</li><li>Final Fantasy XI Gil</li>
-      <li>Final Fantasy XIV Gil</li><li>Fisch Money</li><li>Fix It Up Money</li><li>Forza Horizon 5 Credits</li>
-      <li>Forza Horizon 6 Credits</li><li>Grow a Garden Tokens</li><li>Growtopia Locks</li><li>Guild Wars 2 Gold</li>
-      <li>Knight Online Gold Bars</li><li>Last Epoch Gold</li><li>Lost Ark Gold</li><li>Madden NFL Coins</li>
-      <li>MapleStory Mesos</li><li>Metin2 Won</li><li>Minecraft Hypixel Coins</li><li>MLB: The Show Stubs</li>
-      <li>Mortal Online 2 Gold</li><li>New World Coins</li><li>Old School RuneScape Gold</li>
-      <li>Path of Exile 2 Currency</li><li>Path of Exile Currency</li><li>Pet Simulator 99 Gems</li>
-      <li>Pets Go Diamonds</li><li>Pixel Worlds Byte Coins</li><li>Pokemon Go Stardust</li>
-      <li>Rise Online Gold Bars</li><li>Roblox Robux</li><li>Royale High Diamonds</li><li>RuneScape 3 Gold</li>
-      <li>Runescape Bonds</li><li>Standoff 2 Gold</li><li>Star Citizen aUEC</li><li>SWTOR Credits</li>
-      <li>Tap Simulator Tokens</li><li>Temtem Pansun</li><li>The Quinfall Gold Coins</li><li>Throne and Liberty Lucent</li>
-      <li>Tibia Gold</li><li>Toilet Tower Defense Gems</li><li>Torchlight: Infinite Flame Elementium</li>
-      <li>Trove Flux</li><li>Warframe Platinum</li><li>World of Warcraft Gold</li><li>WoW Classic Era Gold</li>
-      <li>WoW Mists of Pandaria Gold</li>
-    </ul>
+  <!-- ====================== CURRENCY SECTION ====================== -->
+  <div id="currency-section" class="category-section active-category">
+    <div class="games-grid" id="currency-grid"></div>
   </div>
 
-  <!-- TOP UPS PANEL -->
-  <div id="topups" class="category-panel">
-    <h2>📱 Top-Ups & Virtual Currency</h2>
-    <ul class="game-list">
-      <li>8 Ball Pool Cash</li><li>99 Nights in the Forest Diamonds</li><li>Amazon Subscription</li>
-      <li>Apex Legends Top Ups</li><li>Arena Breakout Top Ups</li><li>Arknights: Endfield Origeometry</li>
-      <li>BGMI UC</li><li>Bigo Live Diamonds</li><li>Bite by Night Scraps</li><li>Blood Strike Gold</li>
-      <li>BloxStrike Credits</li><li>Brawl Stars Gems</li><li>Call of Duty Mobile CP</li><li>Call of Duty Points</li>
-      <li>ChatGPT Subscription</li><li>Clash of Clans Gems</li><li>Clash Royale Gems</li><li>Crunchyroll Subscription</li>
-      <li>Dead By Daylight Auric Cells</li><li>Delta Force Delta Coins</li><li>Destiny 2 Silver</li>
-      <li>EA Play Subscription</li><li>EA Sports FC Points</li><li>eFootball 2026 Coins</li>
-      <li>Elder Scrolls Online Crowns</li><li>Fortnite V-Bucks</li><li>Garena Free Fire Diamonds</li>
-      <li>Genshin Impact Top Ups</li><li>Growtopia Gems</li><li>Honkai: Star Rail Oneiric Shards</li>
-      <li>Honor of Kings Tokens</li><li>Identity V Echoes</li><li>League of Legends Riot Points</li>
-      <li>League of Legends: Wild Rift Wild Cores</li><li>Marvel Rivals Lattice</li><li>Metin2 Dragon Coins</li>
-      <li>Miliastra Wonderland Chronal Nexus</li><li>Minecraft Minecoins</li><li>Mobile Legends Diamonds</li>
-      <li>Neverness to Everness Riftcrystal</li><li>Nintendo Subscription</li><li>Overwatch Coins</li>
-      <li>Path of Exile 2 Points</li><li>PlayStation Subscription</li><li>Point Blank TAM Gold</li>
-      <li>Pokemon Go Top Ups</li><li>Pokemon TCG Pocket Poke Gold</li><li>Poppo Live Coins</li>
-      <li>PUBG G-Coins</li><li>PUBG Mobile UC</li><li>Rainbow Six Siege X Credits</li>
-      <li>Roblox Top Ups</li><li>Rocket League Credits</li><li>Rust Coins</li>
-      <li>Sea of Thieves Ancient Coins</li><li>Silkroad Online Türkiye Silk</li><li>Sniper Duels Gems</li>
-      <li>Spotify Subscription</li><li>Super Sus Goldstars</li><li>The Seven Deadly Sins Origin Star Memory</li>
-      <li>TikTok Coins</li><li>Valorant Points</li><li>Where Winds Meet Echo Beads</li>
-      <li>Whiteout Survival Frost Stars</li><li>WolfTeam Cash</li><li>World of Warcraft Subscription</li>
-      <li>Wuthering Waves Lunites</li><li>Xbox Game Pass</li><li>Yalla Ludo Diamonds</li>
-      <li>Zenless Zone Zero Monochromes</li><li>ZEPETO ZEMs</li><li>Zula Gold</li>
-    </ul>
+  <!-- ====================== ACCOUNTS SECTION ====================== -->
+  <div id="accounts-section" class="category-section">
+    <div class="games-grid" id="accounts-grid"></div>
   </div>
 
-  <!-- ITEMS PANEL -->
-  <div id="items" class="category-panel">
-    <h2>✨ In-Game Items & Cosmetics</h2>
-    <ul class="game-list">
-      <li>A Universal Time</li><li>Abyss</li><li>Adopt Me</li><li>Albion Online</li>
-      <li>All Star Tower Defense X</li><li>Animal Crossing: New Horizons</li><li>Anime Apocalypse (New)</li>
-      <li>Anime Card Clash</li><li>Anime Defenders</li><li>Anime Eternal</li><li>Anime Fighting Simulator: Endless</li>
-      <li>Anime Last Stand</li><li>Anime Paradox</li><li>Anime Tactical Simulator</li><li>Anime Vanguards</li>
-      <li>Anime Warriors 3 (New)</li><li>Arc Raiders</li><li>ARK: Survival Ascended</li><li>Attack on Titan Revolution</li>
-      <li>Baddies</li><li>Battlefield</li><li>Be a Lucky Block</li><li>Bee Swarm Simulator</li><li>Bizarre Lineage</li>
-      <li>Blade Ball</li><li>Bloodlines</li><li>Blox Fruits</li><li>BloxStrike (New)</li><li>Blue Lock: Rivals</li>
-      <li>Borderlands 4</li><li>Break a Lucky Block</li><li>bridger: WESTERN</li><li>Bubble Gum Simulator INFINITY</li>
-      <li>Build a Zoo</li><li>Call of Duty</li><li>Case Paradise</li><li>Catch And Tame</li><li>Clash of Clans</li>
-      <li>Counter-Strike 2</li><li>Creatures of Sonaria</li><li>Da Hood</li><li>Dark and Darker</li><li>Delta Force</li>
-      <li>Destiny 2</li><li>Devil Hunter</li><li>Diablo 2: Resurrected</li><li>Diablo 4</li><li>Discord</li>
-      <li>DonutSMP</li><li>Dota 2</li><li>Dreadmyst</li><li>Dune: Awakening</li><li>EA Sports FC</li><li>Elden Ring</li>
-      <li>Elder Scrolls Online</li><li>Escape from Tarkov</li><li>Escape Tsunami For Brainrots</li>
-      <li>Escape Waves For Lucky Blocks</li><li>EVE Online</li><li>Fallout 76</li><li>Fisch</li><li>Fish It!</li>
-      <li>Flee the Facility</li><li>Fortnite</li><li>Garden Horizons</li><li>Garden Tower Defense</li>
-      <li>Grand Piece Online</li><li>Grow a Garden</li><li>Growtopia</li><li>Guild Wars 2</li><li>Hay Day</li>
-      <li>HugoSMP (New)</li><li>Hunty Zombie</li><li>Hypershot</li><li>Ink Game</li><li>Jailbreak</li><li>Jujutsu Infinite</li>
-      <li>KAIZEN</li><li>Kick a Lucky Block</li><li>King Legacy</li><li>Knight Online</li><li>Knockout</li>
-      <li>League of Legends</li><li>Lost Ark</li><li>Metin2</li><li>Minecraft Hypixel Items</li>
-      <li>Mini War (New)</li><li>Monopoly Go</li><li>Murder Mystery 2</li><li>Murderers VS Sheriffs DUELS</li>
-      <li>Noob Tower Defense (New)</li><li>Old School RuneScape</li><li>Path of Exile</li><li>Path of Exile 2</li>
-      <li>Pet Simulator 99</li><li>Pets Go</li><li>Plants vs Brainrots</li><li>Pokemon Go</li>
-      <li>Pokemon Legends: Z-A</li><li>Pokemon TCG Pocket</li><li>Raise Animals</li><li>Re:Rangers X</li>
-      <li>Roblox</li><li>Roblox Limiteds</li><li>Roblox Rivals</li><li>RuneScape 3</li><li>Rust</li><li>Sailor Piece</li>
-      <li>Slime RNG</li><li>Sniper Arena (New)</li><li>Sol's RNG</li><li>Sorcerer Tower Defense</li><li>Spin a Baddie</li>
-      <li>Spongebob Tower Defense</li><li>Star Citizen</li><li>Steal a Brainrot</li><li>Steam</li><li>Summon Heroes</li>
-      <li>Survive Lava for Brainrots</li><li>Swing Obby for Brainrots</li><li>Tap Simulator</li><li>Team Fortress 2</li>
-      <li>The Forge</li><li>Tips Jar</li><li>Twitch Drops</li><li>TYPE://SOUL</li><li>Universal Tower Defense</li>
-      <li>Volleyball Legends</li><li>War Tycoon</li><li>Warframe</li><li>Wizard Alchemy</li><li>World of Warcraft</li>
-      <li>WoW Classic</li><li>WoW Mists of Pandaria</li>
-    </ul>
+  <!-- ====================== TOP UPS SECTION ====================== -->
+  <div id="topups-section" class="category-section">
+    <div class="games-grid" id="topups-grid"></div>
   </div>
 
-  <!-- BOOSTING PANEL -->
-  <div id="boosting" class="category-panel">
-    <h2>⚡ Rank / Level / MMR Boosting</h2>
-    <ul class="game-list">
-      <li>Anime Vanguards</li><li>Apex Legends</li><li>Arc Raiders</li><li>Arena Breakout</li>
-      <li>Arena Breakout: Infinite</li><li>Battlefield</li><li>Black Desert Online</li><li>Blox Fruits</li>
-      <li>Brawl Stars</li><li>Call of Duty</li><li>Clash of Clans</li><li>Clash Royale</li><li>Counter-Strike 2</li>
-      <li>Dead By Daylight</li><li>Deadlock</li><li>Delta Force</li><li>Destiny 2</li><li>Diablo 4</li>
-      <li>DonutSMP</li><li>Dota 2</li><li>EA Sports FC</li><li>Escape from Tarkov</li><li>Fisch</li>
-      <li>Fortnite</li><li>Genshin Impact</li><li>League of Legends</li><li>League of Legends: Wild Rift</li>
-      <li>Marvel Rivals</li><li>Minecraft</li><li>Mobile Legends</li><li>New World</li><li>Old School RuneScape</li>
-      <li>Overwatch</li><li>Path of Exile</li><li>Path of Exile 2</li><li>Pokemon Go</li>
-      <li>Rainbow Six Siege X</li><li>Roblox</li><li>Rocket League</li><li>RuneScape 3</li><li>Rust</li>
-      <li>Teamfight Tactics</li><li>The Division 2</li><li>The First Descendant</li><li>The Forge</li>
-      <li>Throne and Liberty</li><li>Valorant</li><li>War Thunder</li><li>Warframe</li><li>Where Winds Meet</li>
-      <li>World of Warcraft</li><li>WoW Classic</li><li>WoW Mists of Pandaria</li>
-    </ul>
+  <!-- ====================== ITEMS SECTION ====================== -->
+  <div id="items-section" class="category-section">
+    <div class="games-grid" id="items-grid"></div>
   </div>
 
-  <!-- GIFT CARDS PANEL -->
-  <div id="giftcards" class="category-panel">
-    <h2>🎁 Gift Cards & Subscriptions</h2>
-    <ul class="game-list">
-      <li>Amazon Gift Cards</li><li>Apple Gift Cards</li><li>Blizzard Gift Cards</li><li>CD Keys</li>
-      <li>Discord Nitro</li><li>ExitLag Gift Cards</li><li>Fortnite Gift Cards</li><li>Garena Free Fire Gift Cards</li>
-      <li>Google Play Gift Cards</li><li>League of Legends Gift Cards</li><li>Netflix Gift Cards</li>
-      <li>Nintendo Gift Cards</li><li>PlayStation Gift Card</li><li>PUBG Mobile Gift Cards</li><li>Razer Gold</li>
-      <li>Roblox Gift Cards</li><li>Runescape Membership</li><li>Steam Game Accounts</li><li>Steam Gift Cards</li>
-      <li>Valorant Gift Cards</li><li>Xbox Gift Cards</li>
-    </ul>
+  <!-- ====================== BOOSTING SECTION ====================== -->
+  <div id="boosting-section" class="category-section">
+    <div class="games-grid" id="boosting-grid"></div>
   </div>
 
-  <!-- CONTACT SECTION (UPDATED) -->
-  <div class="contact-section">
-    <h3>📢 How to order</h3>
-    <p>Click any category above → browse available games → contact us directly</p>
+  <!-- ====================== GIFTCARDS SECTION ====================== -->
+  <div id="giftcards-section" class="category-section">
+    <div class="games-grid" id="giftcards-grid"></div>
+  </div>
+
+  <div class="contact-footer">
+    <h3><i class="fas fa-headset"></i> How to Order</h3>
+    <p>Click any category → browse games and items → contact us directly</p>
     <div class="contact-buttons">
-      <a href="https://discord.gg/TsQMG9eJ" target="_blank" class="contact-link">💬 Discord</a>
-      <a href="https://wa.me/88223457" target="_blank" class="contact-link">📱 WhatsApp</a>
+      <a href="https://discord.gg/TsQMG9eJ" target="_blank" class="contact-link"><i class="fab fa-discord"></i> Discord</a>
+      <a href="https://wa.me/88223457" target="_blank" class="contact-link"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     </div>
-    <p style="margin-top: 1rem; font-size: 0.85rem;">✅ Fast delivery &amp; 24/7 support. DM us on Discord or WhatsApp to order.</p>
+    <p style="font-size: 0.8rem;">✔ TrustShield protection • 5-day insurance • instant delivery</p>
   </div>
-
-  <footer>
-    © 2026 BoostHub — service catalog only. Contact us to place an order.
-  </footer>
+  <footer>© 2026 NexusBoost — catalog & reference only. DM to order.</footer>
 </div>
 
 <script>
-  // Tab switching logic
-  const btns = document.querySelectorAll('.cat-btn');
-  const panels = document.querySelectorAll('.category-panel');
+  // ------------------- HUGE GAME DATASETS (Based on eldorado.gg market) -------------------
+  const currencyGames = [
+    { name: "Albion Online", icon: "⚔️", services: ["Silver", "Gold exchange", "Tome of Insight", "High-tier gear sets"], note: "Instant mail / market" },
+    { name: "8 Ball Pool", icon: "🎱", services: ["Pool Coins (millions)", "Cash", "Epic Boxes", "Legendary cues"], note: "ID top-up" },
+    { name: "Black Desert Online", icon: "🏜️", services: ["Silver", "Crons Stones", "Pearl Items", "Enhancement mats"], note: "Family name delivery" },
+    { name: "Blade Ball", icon: "⚔️", services: ["Trade Tokens", "Exclusive emotes", "Rare sword skins"], note: "1:1 conversion Robux" },
+    { name: "Creatures of Sonaria", icon: "🦖", services: ["Mushrooms (Shrooms)", "Plushies", "Specs / exclusive creatures"], note: "Trade realm / auction" },
+    { name: "Dark and Darker", icon: "🕯️", services: ["Gold", "Keys (Golden, Skeleton)", "Treasure bags"], note: "Flea market / raid drop" },
+    { name: "Diablo 4", icon: "😈", services: ["Gold", "Boss summon mats (Duriel, Grigoire)", "Runes"], note: "Safe trade or PvP carry" },
+    { name: "Dofus", icon: "🐉", services: ["Kamas", "Dofus eggs", "Set items (Crimson, Emerald)"], note: "Bank transfer / market" },
+    { name: "Elder Scrolls Online", icon: "🏹", services: ["Gold", "Crowns (gifted)", "Motifs / crafting mats"], note: "Guild trader" },
+    { name: "Escape From Tarkov", icon: "🔫", services: ["Roubles", "Dollars / Euros", "Keycards (Lab, Marked)", "Containers"], note: "Flea market drop" },
+    { name: "EVE Online", icon: "🚀", services: ["ISK", "PLEX", "Skill Injectors", "Capital ships"], note: "Contract / trade window" },
+    { name: "Fisch (Roblox)", icon: "🐟", services: ["E$ (main currency)", "C$ (premium)", "Rare rods", "Boats"], note: "Direct gift" },
+    { name: "Forza Horizon 5/6", icon: "🏎️", services: ["Credits (millions)", "Super Wheelspins", "Rare cars"], note: "Auction house gift" },
+    { name: "Growtopia", icon: "🌱", services: ["World Locks (WL)", "Diamond Locks (DL)", "Blue Gem Locks (BGL)"], note: "Trade worlds / vending" },
+    { name: "Guild Wars 2", icon: "🗡️", services: ["Gold", "Mystic Coins", "Legendary weapons"], note: "Mail / guild bank" },
+    { name: "Knight Online", icon: "🛡️", services: ["Gold Bars (GB)", "Coins", "High-end uniques"], note: "Merchant trade" },
+    { name: "Last Epoch", icon: "💀", services: ["Gold", "Rare items (unique/set)", "Crafting mats"], note: "Trade / Vendor resell" },
+    { name: "Lost Ark", icon: "⚓", services: ["Gold", "Honor Shards", "Leapstones", "Gem pouches"], note: "Market / direct trade" },
+    { name: "Madden NFL", icon: "🏈", services: ["MUT Coins", "Platinum packs", "Limited edition cards"], note: "Auction house delivery" },
+    { name: "MapleStory", icon: "🍁", services: ["Mesos", "Cubes", "Rare equips", "Nodestones"], note: "Scania / Bera servers" },
+    { name: "Metin2", icon: "🐉", services: ["Yang", "Won (1 Won = 100M Yang)", "Dragon Coins"], note: "Item shop trade" },
+    { name: "Minecraft Hypixel", icon: "⛏️", services: ["Skyblock Coins", "Dungeon carries", "Essence"], note: "Auction house / party" },
+    { name: "MLB The Show", icon: "⚾", services: ["Stubs", "Diamond Dynasty packs", "Live series players"], note: "Marketplace flip" },
+    { name: "Mortal Online 2", icon: "⚔️", services: ["Gold", "Tindremic currency", "Rare materials"], note: "Bank / trade" },
+    { name: "New World", icon: "🌎", services: ["Coins (Gold)", "High GS gear", "Rare resources"], note: "Trading post" },
+    { name: "Old School RuneScape", icon: "🪙", services: ["OSRS GP", "Bonds", "High-level equipment (Bandos, Ancestral)"], note: "Trade screen / wilderness" },
+    { name: "Path of Exile 1/2", icon: "💀", services: ["Divine Orbs", "Chaos Orbs", "Exalted Orbs", "Scarabs", "Mirrors"], note: "Safe trade & bulk" },
+    { name: "Pet Simulator 99", icon: "🐾", services: ["Gems", "Huge pets", "Exclusive eggs"], note: "Mail / booth trade" },
+    { name: "Pets Go", icon: "🐶", services: ["Diamonds", "Shiny pets", "Boosters"], note: "Direct trade" },
+    { name: "Pixel Worlds", icon: "🎨", services: ["Byte Coins", "World Locks", "Rare seeds"], note: "Exchange market" },
+    { name: "Pokémon Go", icon: "✨", services: ["Stardust (millions)", "Rare Candies", "Shiny Pokémon transfers"], note: "Trade coords or spoof" },
+    { name: "Rise Online", icon: "⚜️", services: ["Gold Bars (GB)", "Premium items", "High-tier gear"], note: "Merchant / barter" },
+    { name: "Roblox", icon: "🤖", services: ["Robux (group funds)", "Limited items"], note: "Group payout / private server" },
+    { name: "Royale High", icon: "👑", services: ["Diamonds", "Halo sets", "Rare wings"], note: "Trading hub" },
+    { name: "RuneScape 3", icon: "⚔️", services: ["RS3 Gold", "Bonds", "Masterwork equipment"], note: "Trade window" },
+    { name: "Standoff 2", icon: "🔫", services: ["Gold", "Premium skins", "Battle pass tiers"], note: "Gift inventory" },
+    { name: "Star Citizen", icon: "🛸", services: ["aUEC (Alpha)", "Ships (in-game)", "Weapons / modules"], note: "In-game credit delivery" },
+    { name: "SWTOR", icon: "✨", services: ["Credits", "Cartel items", "Augments"], note: "Mail / trade" },
+    { name: "Tap Simulator", icon: "👆", services: ["Taps/Tokens", "Rebirth boosts", "Best pets"], note: "Gift system" },
+    { name: "Temtem", icon: "🐧", services: ["Pansun", "Luma Temtems", "Clover items"], note: "Trade window" },
+    { name: "Throne and Liberty", icon: "👑", services: ["Lucent", "Sollant", "Traits", "Epic gear"], note: "Auction House listing" },
+    { name: "Tibia", icon: "🗡️", services: ["Gold", "Tibia Coins", "Rare items (Falcon, Cobra)"], note: "Market / parcel" },
+    { name: "Toilet Tower Defense", icon: "🚽", services: ["Gems", "Exclusive units (Titan Clockman)", "Crates"], note: "Roblox trade" },
+    { name: "Torchlight Infinite", icon: "🔥", services: ["Flame Elementium", "Legendary crafting mats", "Endgame gear"], note: "Safe trade / mail" },
+    { name: "Trove", icon: "🎮", services: ["Flux", "Dragon Coins", "Ganda mounts"], note: "Player marketplace" },
+    { name: "Warframe", icon: "🌀", services: ["Platinum", "Prime sets", "Arcanes", "Riven mods"], note: "Trade kiosk / dojo" },
+    { name: "World of Warcraft", icon: "🛡️", services: ["Gold (Retail + Classic)", "BoE epics", "Mounts", "Mats"], note: "Trade window / guild bank" }
+  ];
 
-  function showCategory(categoryId) {
-    panels.forEach(panel => panel.classList.remove('active'));
-    const target = document.getElementById(categoryId);
-    if (target) target.classList.add('active');
+  const accountsGames = [
+    { name: "Genshin Impact", icon: "⭐", services: ["5-star starter (Mavuika, Furina)", "Whale accounts (C6/R5)", "AR60 + full map"], note: "Full email access" },
+    { name: "Elden Ring", icon: "🌙", services: ["Max level characters", "NG+7 builds", "Full weapon/armor sets"], note: "Steam save transfer" },
+    { name: "Roblox", icon: "🧸", services: ["Limiteds accounts (Dominus, Sparkle)", "Blox Fruits / Pet Sim stacked"], note: "Password + email change" },
+    { name: "Fortnite", icon: "🔫", services: ["OG skins (Renegade Raider)", "Black Knight + Galaxy", "High V-Bucks"], note: "Full account" },
+    { name: "Call of Duty", icon: "🎖️", services: ["Mastery camo (Orion/Interstellar)", "Max prestige + ranked rewards"], note: "Activision ID transfer" },
+    { name: "League of Legends", icon: "🏆", services: ["High MMR smurfs", "Rare skins (Pax TF / Silver Kayle)", "Unranked 30"], note: "Email change included" },
+    { name: "Valorant", icon: "🎯", services: ["Radiant / Immortal accounts", "Rare skins (Champions, Elderflame)", "Rank ready"], note: "Riot ID change" },
+    { name: "World of Warcraft", icon: "🐉", services: ["Max level characters", "Gladiator / Mythic geared", "Gold cap"], note: "Battle.net transfer" },
+    { name: "Escape From Tarkov", icon: "🎒", services: ["Kappa container", "Max traders", "High stash value"], note: "Full profile handover" },
+    { name: "Old School RuneScape", icon: "🗝️", services: ["Maxed mains", "Pure builds (1 def, zerker)", "Quest cape"], note: "Secure trade" }
+  ];
+
+  const topupsGames = [
+    { name: "Fortnite", icon: "🎮", services: ["V-Bucks (5000/13500/50000)", "Crew Pack subscription", "Battle Stars"], note: "Epic Games ID" },
+    { name: "Roblox", icon: "🧸", services: ["Robux (800/2200/10000+)", "Premium subscriptions"], note: "Group funds / gift codes" },
+    { name: "Genshin Impact", icon: "🌊", services: ["Genesis Crystals", "Welkin Moon", "Battle Pass"], note: "UID top-up" },
+    { name: "Valorant", icon: "🎯", services: ["Valorant Points (VP)", "Radianite Points", "Battle pass"], note: "Riot ID top-up" },
+    { name: "Call of Duty", icon: "🔫", services: ["COD Points", "BlackCell pass", "Pro Pack"], note: "Activision ID" },
+    { name: "Brawl Stars", icon: "⭐", services: ["Gems", "Brawl Pass", "Hypercharge offers"], note: "Supercell ID" },
+    { name: "Clash of Clans", icon: "🏰", services: ["Gems", "Gold Pass", "Magic items"], note: "Player tag" },
+    { name: "Mobile Legends", icon: "📱", services: ["Diamonds", "Twilight Pass", "Starlight Membership"], note: "ID top-up" },
+    { name: "PUBG Mobile", icon: "🪂", services: ["UC (Unknown Cash)", "Royale Pass", "Containers"], note: "Character ID" },
+    { name: "Apex Legends", icon: "🦍", services: ["Apex Coins", "Battle Pass", "Milestones"], note: "EA account" },
+    { name: "Rocket League", icon: "🚗", services: ["Credits", "Rocket Pass", "Fennec bundles"], note: "Epic Games ID" },
+    { name: "Honkai: Star Rail", icon: "🌟", services: ["Oneiric Shards", "Starlight Pass", "BP"], note: "UID top-up" },
+    { name: "EA Sports FC", icon: "⚽", services: ["FC Points", "Ultimate Team packs", "Season pass"], note: "EA account" }
+  ];
+
+  const itemsGames = [
+    { name: "Counter-Strike 2", icon: "🔫", services: ["Knives (Karambit, Butterfly)", "Gloves (Pandora's Box)", "Cases & stickers"], note: "Steam trade offer" },
+    { name: "Fortnite", icon: "🛸", services: ["Rare skins (Travis Scott, Psycho)", "Emotes / Pickaxes", "Giftable bundles"], note: "Epic gifting" },
+    { name: "Roblox", icon: "🎲", services: ["Limiteds (Dominus, Sparkle Time)", "Gamepasses (Blox Fruits)", "Boosts"], note: "Roblox limited trade" },
+    { name: "Rust", icon: "🛠️", services: ["Skins (Tempered, Alien Red)", "DLC containers"], note: "Steam inventory" },
+    { name: "Rocket League", icon: "🚙", services: ["Black Market decals (Dissolver)", "Fennec body", "Goal explosions"], note: "Epic trade" },
+    { name: "Blox Fruits", icon: "🍎", services: ["Fruit storage", "Perm fruits (Dragon, Leopard)", "Gamepasses"], note: "Private server trade" },
+    { name: "Pet Simulator 99", icon: "🐱", services: ["Huge pets (Huge Cat)", "Titanic pets", "Exclusive eggs"], note: "Mail / booth" },
+    { name: "Murder Mystery 2", icon: "🔪", services: ["Godly weapons (Chroma, Icebreaker)", "Ancient knives"], note: "Direct trade" },
+    { name: "Adopt Me", icon: "🐣", services: ["Legendary pets (Shadow Dragon)", "Potions / cars"], note: "Cross-trading safe" },
+    { name: "Anime Vanguards", icon: "🌀", services: ["Limited units (Guts, Gojo)", "Gems / exclusive items"], note: "Trade hub" },
+    { name: "Jujutsu Infinite", icon: "🔥", services: ["Domain Shards", "Cursed items", "Max scrolls"], note: "Direct trade" }
+  ];
+
+  const boostingGames = [
+    { name: "League of Legends", icon: "🏅", services: ["Ranked Duo (Iron → Challenger)", "Placements", "LP gains"], note: "Piloted or duo" },
+    { name: "Valorant", icon: "🎯", services: ["Rank boost (Iron → Radiant)", "Act rank", "5-stack"], note: "VPN secured" },
+    { name: "CS2", icon: "💣", services: ["Premier Rating boost", "Wingman rank", "Faceit level"], note: "High winrate" },
+    { name: "World of Warcraft", icon: "🐉", services: ["Mythic+ (2→20)", "Gladiator boost", "AOTC / Mythic raid"], note: "Self-play or piloted" },
+    { name: "Call of Duty", icon: "🎖️", services: ["Camo unlock (Interstellar)", "Ranked Play boost", "Resurgence wins"], note: "Bot lobbies" },
+    { name: "Fortnite", icon: "⛏️", services: ["Battle Pass XP", "Ranked boost (Unreal)", "Victory royales"], note: "Duo carry" },
+    { name: "Overwatch 2", icon: "🦸", services: ["Competitive rank (Bronze→Top500)", "Hero mastery"], note: "Piloted guaranteed" },
+    { name: "Rocket League", icon: "⚽", services: ["Rank boost (SSL reward)", "Season rewards"], note: "Party / piloted" },
+    { name: "Apex Legends", icon: "🦍", services: ["Ranked boost (Predator)", "4K/20 bomb badges"], note: "Duo carry" },
+    { name: "Teamfight Tactics", icon: "♟️", services: ["LP boost", "Rank reset", "Hyper roll carry"], note: "Piloted" },
+    { name: "Destiny 2", icon: "🌌", services: ["Trials flawless", "Competitive rank", "Raid carries"], note: "Sherpa" },
+    { name: "Escape From Tarkov", icon: "🎒", services: ["Kappa container quests", "Leveling boost", "Flea unlock"], note: "Piloted only" },
+    { name: "Diablo 4", icon: "😈", services: ["Leveling 1-100", "Duriel mats farm", "Pit tier carry"], note: "Group service" }
+  ];
+
+  const giftcardsGames = [
+    { name: "Steam", icon: "🎮", services: ["Gift cards ($5, $10, $20, $50, $100)"], note: "Digital code" },
+    { name: "Xbox", icon: "🕹️", services: ["Gift cards & Game Pass Ultimate"], note: "Instant delivery" },
+    { name: "PlayStation", icon: "🎮", services: ["PSN wallet top-up", "Plus subscription"], note: "Global region" },
+    { name: "Nintendo eShop", icon: "🎮", services: ["eShop cards (US/EU/JP)"], note: "Code only" },
+    { name: "Google Play", icon: "📱", services: ["Google Play codes (mobile games)"], note: "Worldwide" },
+    { name: "Apple App Store", icon: "🍎", services: ["iTunes / App Store codes"], note: "Top-up" },
+    { name: "Discord Nitro", icon: "💬", services: ["Nitro Basic / Nitro monthly"], note: "Link gift" },
+    { name: "Roblox", icon: "🤖", services: ["Roblox eGift cards"], note: "Redeem Robux" },
+    { name: "Fortnite", icon: "🔫", services: ["V-Bucks cards"], note: "Digital code" },
+    { name: "Razer Gold", icon: "🟢", services: ["Razer Gold PIN codes"], note: "Multi-game top-up" },
+    { name: "Netflix", icon: "📺", services: ["Netflix Gift Cards (prepaid)"], note: "Subscription" }
+  ];
+
+  function renderCategory(categoryName, containerId, dataArray) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = '';
+    dataArray.forEach((game, idx) => {
+      const card = document.createElement('div');
+      card.className = 'game-card';
+      card.style.animationDelay = `${idx * 0.02}s`;
+      let servicesHtml = '';
+      game.services.forEach(s => {
+        servicesHtml += `<li><i class="fas fa-angle-right"></i> ${s}</li>`;
+      });
+      card.innerHTML = `
+        <div class="card-header">
+          <div class="game-icon">${game.icon}</div>
+          <div class="game-name">${game.name}</div>
+        </div>
+        <div class="card-body">
+          <ul class="service-list">${servicesHtml}</ul>
+          <div class="badge"><i class="fas fa-shield-alt"></i> ${game.note}</div>
+          <div class="contact-dm"><i class="fas fa-message"></i> DM to order</div>
+        </div>
+      `;
+      container.appendChild(card);
+    });
   }
 
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
+  // initial render
+  renderCategory('Currency', 'currency-grid', currencyGames);
+  renderCategory('Accounts', 'accounts-grid', accountsGames);
+  renderCategory('Top Ups', 'topups-grid', topupsGames);
+  renderCategory('Items', 'items-grid', itemsGames);
+  renderCategory('Boosting', 'boosting-grid', boostingGames);
+  renderCategory('Gift Cards', 'giftcards-grid', giftcardsGames);
+
+  // tab switching logic
+  const sections = {
+    currency: document.getElementById('currency-section'),
+    accounts: document.getElementById('accounts-section'),
+    topups: document.getElementById('topups-section'),
+    items: document.getElementById('items-section'),
+    boosting: document.getElementById('boosting-section'),
+    giftcards: document.getElementById('giftcards-section')
+  };
+  const buttons = document.querySelectorAll('.cat-tab');
+  function activateCategory(categoryId) {
+    Object.values(sections).forEach(sec => sec.classList.remove('active-category'));
+    sections[categoryId].classList.add('active-category');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    const activeBtn = Array.from(buttons).find(btn => btn.getAttribute('data-cat') === categoryId);
+    if (activeBtn) activeBtn.classList.add('active');
+  }
+  buttons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
       const cat = btn.getAttribute('data-cat');
-      showCategory(cat);
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      if (cat && sections[cat]) activateCategory(cat);
     });
   });
-
-  showCategory('currency');
-  btns[0].classList.add('active');
 </script>
 </body>
 </html>
