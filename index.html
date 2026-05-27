@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BoostHub | Game Services Catalog</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0c15;
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      color: #edf2f8;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffffff, #b77cff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .tagline {
+      text-align: center;
+      color: #8b9bb5;
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* Category Buttons */
+    .buttons-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cat-btn {
+      background: #1e293b;
+      border: none;
+      border-radius: 60px;
+      padding: 0.75rem 1.8rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      font-family: inherit;
+    }
+
+    .cat-btn:hover {
+      background: #334155;
+      transform: translateY(-2px);
+    }
+
+    .cat-btn.active {
+      background: #8b5cf6;
+      color: white;
+      box-shadow: 0 4px 12px rgba(139,92,246,0.4);
+    }
+
+    /* Content panels */
+    .category-panel {
+      display: none;
+      background: #0f172a;
+      border-radius: 32px;
+      padding: 1.8rem;
+      border: 1px solid #2d3a5e;
+      animation: fade 0.25s ease;
+    }
+
+    .category-panel.active {
+      display: block;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(8px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    .category-panel h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #8b5cf6;
+      display: inline-block;
+    }
+
+    /* Multi-column lists */
+    .game-list {
+      columns: 4;
+      column-gap: 2rem;
+      list-style: none;
+      margin-top: 1rem;
+    }
+
+    .game-list li {
+      break-inside: avoid;
+      margin-bottom: 0.6rem;
+      padding-left: 1.3rem;
+      position: relative;
+      font-size: 0.95rem;
+      color: #cbd5e6;
+    }
+
+    .game-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #a78bfa;
+      font-size: 0.9rem;
+    }
+
+    /* responsive columns */
+    @media (max-width: 1000px) {
+      .game-list { columns: 3; }
+    }
+    @media (max-width: 700px) {
+      .game-list { columns: 2; }
+      .buttons-grid { gap: 0.7rem; }
+      .cat-btn { padding: 0.5rem 1.2rem; font-size: 0.9rem; }
+    }
+    @media (max-width: 480px) {
+      .game-list { columns: 1; }
+    }
+
+    /* Contact section */
+    .contact-section {
+      background: #0f172a;
+      border-radius: 28px;
+      padding: 1.8rem;
+      margin-top: 2.5rem;
+      text-align: center;
+      border: 1px solid #2d3a5e;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+
+    .contact-link {
+      background: #1e293b;
+      padding: 0.6rem 1.4rem;
+      border-radius: 40px;
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .contact-link:hover {
+      background: #8b5cf6;
+      transform: scale(1.02);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: #4a5a7a;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>⚡ BOOSTHUB</h1>
+  <div class="tagline">All Games • All Services • One Place</div>
+
+  <!-- Category Buttons -->
+  <div class="buttons-grid">
+    <button class="cat-btn" data-cat="currency">💰 Currency</button>
+    <button class="cat-btn" data-cat="accounts">🎮 Accounts</button>
+    <button class="cat-btn" data-cat="topups">📱 Top Ups</button>
+    <button class="cat-btn" data-cat="items">✨ Items</button>
+    <button class="cat-btn" data-cat="boosting">⚡ Boosting</button>
+    <button class="cat-btn" data-cat="giftcards">🎁 Gift Cards</button>
+  </div>
+
+  <!-- CURRENCY PANEL -->
+  <div id="currency" class="category-panel">
+    <h2>💰 In-Game Currency</h2>
+    <ul class="game-list">
+      <li>8 Ball Pool Coins</li><li>Aion 2 Kinah</li><li>Albion Online Silver</li><li>Arc Raiders Coins</li>
+      <li>Black Desert Online Silver</li><li>Blade & Soul NEO Divine Gems</li><li>Blade Ball Tokens</li>
+      <li>Creatures of Sonaria Mushrooms</li><li>Dark and Darker Gold</li><li>DC Universe Online Cash</li>
+      <li>Delta Force Tekniq Alloy</li><li>Diablo 4 Gold</li><li>Digimon Super Rumble Bits</li><li>Dofus Kamas</li>
+      <li>DonutSMP Money</li><li>Dragon Adventures Coins</li><li>Dreadmyst Gold</li><li>Dune: Awakening Solaris</li>
+      <li>EA Sports FC Coins</li><li>Elden Ring Runes</li><li>Elder Scrolls Online Gold</li>
+      <li>Escape From Tarkov Roubles</li><li>Escape Tsunami For Brainrots Trade Tokens</li><li>EVE Echoes ISK</li>
+      <li>EVE Online ISK</li><li>Fallout 76 Caps</li><li>Farever Gold</li><li>Final Fantasy XI Gil</li>
+      <li>Final Fantasy XIV Gil</li><li>Fisch Money</li><li>Fix It Up Money</li><li>Forza Horizon 5 Credits</li>
+      <li>Forza Horizon 6 Credits</li><li>Grow a Garden Tokens</li><li>Growtopia Locks</li><li>Guild Wars 2 Gold</li>
+      <li>Knight Online Gold Bars</li><li>Last Epoch Gold</li><li>Lost Ark Gold</li><li>Madden NFL Coins</li>
+      <li>MapleStory Mesos</li><li>Metin2 Won</li><li>Minecraft Hypixel Coins</li><li>MLB: The Show Stubs</li>
+      <li>Mortal Online 2 Gold</li><li>New World Coins</li><li>Old School RuneScape Gold</li>
+      <li>Path of Exile 2 Currency</li><li>Path of Exile Currency</li><li>Pet Simulator 99 Gems</li>
+      <li>Pets Go Diamonds</li><li>Pixel Worlds Byte Coins</li><li>Pokemon Go Stardust</li>
+      <li>Rise Online Gold Bars</li><li>Roblox Robux</li><li>Royale High Diamonds</li><li>RuneScape 3 Gold</li>
+      <li>Runescape Bonds</li><li>Standoff 2 Gold</li><li>Star Citizen aUEC</li><li>SWTOR Credits</li>
+      <li>Tap Simulator Tokens</li><li>Temtem Pansun</li><li>The Quinfall Gold Coins</li><li>Throne and Liberty Lucent</li>
+      <li>Tibia Gold</li><li>Toilet Tower Defense Gems</li><li>Torchlight: Infinite Flame Elementium</li>
+      <li>Trove Flux</li><li>Warframe Platinum</li><li>World of Warcraft Gold</li><li>WoW Classic Era Gold</li>
+      <li>WoW Mists of Pandaria Gold</li>
+    </ul>
+  </div>
+
+  <!-- ACCOUNTS PANEL (same list as currency by your request, but i keep it as Accounts) -->
+  <div id="accounts" class="category-panel">
+    <h2>🎮 Accounts for Sale</h2>
+    <ul class="game-list">
+      <li>8 Ball Pool Coins</li><li>Aion 2 Kinah</li><li>Albion Online Silver</li><li>Arc Raiders Coins</li>
+      <li>Black Desert Online Silver</li><li>Blade & Soul NEO Divine Gems</li><li>Blade Ball Tokens</li>
+      <li>Creatures of Sonaria Mushrooms</li><li>Dark and Darker Gold</li><li>DC Universe Online Cash</li>
+      <li>Delta Force Tekniq Alloy</li><li>Diablo 4 Gold</li><li>Digimon Super Rumble Bits</li><li>Dofus Kamas</li>
+      <li>DonutSMP Money</li><li>Dragon Adventures Coins</li><li>Dreadmyst Gold</li><li>Dune: Awakening Solaris</li>
+      <li>EA Sports FC Coins</li><li>Elden Ring Runes</li><li>Elder Scrolls Online Gold</li>
+      <li>Escape From Tarkov Roubles</li><li>Escape Tsunami For Brainrots Trade Tokens</li><li>EVE Echoes ISK</li>
+      <li>EVE Online ISK</li><li>Fallout 76 Caps</li><li>Farever Gold</li><li>Final Fantasy XI Gil</li>
+      <li>Final Fantasy XIV Gil</li><li>Fisch Money</li><li>Fix It Up Money</li><li>Forza Horizon 5 Credits</li>
+      <li>Forza Horizon 6 Credits</li><li>Grow a Garden Tokens</li><li>Growtopia Locks</li><li>Guild Wars 2 Gold</li>
+      <li>Knight Online Gold Bars</li><li>Last Epoch Gold</li><li>Lost Ark Gold</li><li>Madden NFL Coins</li>
+      <li>MapleStory Mesos</li><li>Metin2 Won</li><li>Minecraft Hypixel Coins</li><li>MLB: The Show Stubs</li>
+      <li>Mortal Online 2 Gold</li><li>New World Coins</li><li>Old School RuneScape Gold</li>
+      <li>Path of Exile 2 Currency</li><li>Path of Exile Currency</li><li>Pet Simulator 99 Gems</li>
+      <li>Pets Go Diamonds</li><li>Pixel Worlds Byte Coins</li><li>Pokemon Go Stardust</li>
+      <li>Rise Online Gold Bars</li><li>Roblox Robux</li><li>Royale High Diamonds</li><li>RuneScape 3 Gold</li>
+      <li>Runescape Bonds</li><li>Standoff 2 Gold</li><li>Star Citizen aUEC</li><li>SWTOR Credits</li>
+      <li>Tap Simulator Tokens</li><li>Temtem Pansun</li><li>The Quinfall Gold Coins</li><li>Throne and Liberty Lucent</li>
+      <li>Tibia Gold</li><li>Toilet Tower Defense Gems</li><li>Torchlight: Infinite Flame Elementium</li>
+      <li>Trove Flux</li><li>Warframe Platinum</li><li>World of Warcraft Gold</li><li>WoW Classic Era Gold</li>
+      <li>WoW Mists of Pandaria Gold</li>
+    </ul>
+  </div>
+
+  <!-- TOP UPS PANEL -->
+  <div id="topups" class="category-panel">
+    <h2>📱 Top-Ups & Virtual Currency</h2>
+    <ul class="game-list">
+      <li>8 Ball Pool Cash</li><li>99 Nights in the Forest Diamonds</li><li>Amazon Subscription</li>
+      <li>Apex Legends Top Ups</li><li>Arena Breakout Top Ups</li><li>Arknights: Endfield Origeometry</li>
+      <li>BGMI UC</li><li>Bigo Live Diamonds</li><li>Bite by Night Scraps</li><li>Blood Strike Gold</li>
+      <li>BloxStrike Credits</li><li>Brawl Stars Gems</li><li>Call of Duty Mobile CP</li><li>Call of Duty Points</li>
+      <li>ChatGPT Subscription</li><li>Clash of Clans Gems</li><li>Clash Royale Gems</li><li>Crunchyroll Subscription</li>
+      <li>Dead By Daylight Auric Cells</li><li>Delta Force Delta Coins</li><li>Destiny 2 Silver</li>
+      <li>EA Play Subscription</li><li>EA Sports FC Points</li><li>eFootball 2026 Coins</li>
+      <li>Elder Scrolls Online Crowns</li><li>Fortnite V-Bucks</li><li>Garena Free Fire Diamonds</li>
+      <li>Genshin Impact Top Ups</li><li>Growtopia Gems</li><li>Honkai: Star Rail Oneiric Shards</li>
+      <li>Honor of Kings Tokens</li><li>Identity V Echoes</li><li>League of Legends Riot Points</li>
+      <li>League of Legends: Wild Rift Wild Cores</li><li>Marvel Rivals Lattice</li><li>Metin2 Dragon Coins</li>
+      <li>Miliastra Wonderland Chronal Nexus</li><li>Minecraft Minecoins</li><li>Mobile Legends Diamonds</li>
+      <li>Neverness to Everness Riftcrystal</li><li>Nintendo Subscription</li><li>Overwatch Coins</li>
+      <li>Path of Exile 2 Points</li><li>PlayStation Subscription</li><li>Point Blank TAM Gold</li>
+      <li>Pokemon Go Top Ups</li><li>Pokemon TCG Pocket Poke Gold</li><li>Poppo Live Coins</li>
+      <li>PUBG G-Coins</li><li>PUBG Mobile UC</li><li>Rainbow Six Siege X Credits</li>
+      <li>Roblox Top Ups</li><li>Rocket League Credits</li><li>Rust Coins</li>
+      <li>Sea of Thieves Ancient Coins</li><li>Silkroad Online Türkiye Silk</li><li>Sniper Duels Gems</li>
+      <li>Spotify Subscription</li><li>Super Sus Goldstars</li><li>The Seven Deadly Sins Origin Star Memory</li>
+      <li>TikTok Coins</li><li>Valorant Points</li><li>Where Winds Meet Echo Beads</li>
+      <li>Whiteout Survival Frost Stars</li><li>WolfTeam Cash</li><li>World of Warcraft Subscription</li>
+      <li>Wuthering Waves Lunites</li><li>Xbox Game Pass</li><li>Yalla Ludo Diamonds</li>
+      <li>Zenless Zone Zero Monochromes</li><li>ZEPETO ZEMs</li><li>Zula Gold</li>
+    </ul>
+  </div>
+
+  <!-- ITEMS PANEL -->
+  <div id="items" class="category-panel">
+    <h2>✨ In-Game Items & Cosmetics</h2>
+    <ul class="game-list">
+      <li>A Universal Time</li><li>Abyss</li><li>Adopt Me</li><li>Albion Online</li>
+      <li>All Star Tower Defense X</li><li>Animal Crossing: New Horizons</li><li>Anime Apocalypse (New)</li>
+      <li>Anime Card Clash</li><li>Anime Defenders</li><li>Anime Eternal</li><li>Anime Fighting Simulator: Endless</li>
+      <li>Anime Last Stand</li><li>Anime Paradox</li><li>Anime Tactical Simulator</li><li>Anime Vanguards</li>
+      <li>Anime Warriors 3 (New)</li><li>Arc Raiders</li><li>ARK: Survival Ascended</li><li>Attack on Titan Revolution</li>
+      <li>Baddies</li><li>Battlefield</li><li>Be a Lucky Block</li><li>Bee Swarm Simulator</li><li>Bizarre Lineage</li>
+      <li>Blade Ball</li><li>Bloodlines</li><li>Blox Fruits</li><li>BloxStrike (New)</li><li>Blue Lock: Rivals</li>
+      <li>Borderlands 4</li><li>Break a Lucky Block</li><li>bridger: WESTERN</li><li>Bubble Gum Simulator INFINITY</li>
+      <li>Build a Zoo</li><li>Call of Duty</li><li>Case Paradise</li><li>Catch And Tame</li><li>Clash of Clans</li>
+      <li>Counter-Strike 2</li><li>Creatures of Sonaria</li><li>Da Hood</li><li>Dark and Darker</li><li>Delta Force</li>
+      <li>Destiny 2</li><li>Devil Hunter</li><li>Diablo 2: Resurrected</li><li>Diablo 4</li><li>Discord</li>
+      <li>DonutSMP</li><li>Dota 2</li><li>Dreadmyst</li><li>Dune: Awakening</li><li>EA Sports FC</li><li>Elden Ring</li>
+      <li>Elder Scrolls Online</li><li>Escape from Tarkov</li><li>Escape Tsunami For Brainrots</li>
+      <li>Escape Waves For Lucky Blocks</li><li>EVE Online</li><li>Fallout 76</li><li>Fisch</li><li>Fish It!</li>
+      <li>Flee the Facility</li><li>Fortnite</li><li>Garden Horizons</li><li>Garden Tower Defense</li>
+      <li>Grand Piece Online</li><li>Grow a Garden</li><li>Growtopia</li><li>Guild Wars 2</li><li>Hay Day</li>
+      <li>HugoSMP (New)</li><li>Hunty Zombie</li><li>Hypershot</li><li>Ink Game</li><li>Jailbreak</li><li>Jujutsu Infinite</li>
+      <li>KAIZEN</li><li>Kick a Lucky Block</li><li>King Legacy</li><li>Knight Online</li><li>Knockout</li>
+      <li>League of Legends</li><li>Lost Ark</li><li>Metin2</li><li>Minecraft Hypixel Items</li>
+      <li>Mini War (New)</li><li>Monopoly Go</li><li>Murder Mystery 2</li><li>Murderers VS Sheriffs DUELS</li>
+      <li>Noob Tower Defense (New)</li><li>Old School RuneScape</li><li>Path of Exile</li><li>Path of Exile 2</li>
+      <li>Pet Simulator 99</li><li>Pets Go</li><li>Plants vs Brainrots</li><li>Pokemon Go</li>
+      <li>Pokemon Legends: Z-A</li><li>Pokemon TCG Pocket</li><li>Raise Animals</li><li>Re:Rangers X</li>
+      <li>Roblox</li><li>Roblox Limiteds</li><li>Roblox Rivals</li><li>RuneScape 3</li><li>Rust</li><li>Sailor Piece</li>
+      <li>Slime RNG</li><li>Sniper Arena (New)</li><li>Sol's RNG</li><li>Sorcerer Tower Defense</li><li>Spin a Baddie</li>
+      <li>Spongebob Tower Defense</li><li>Star Citizen</li><li>Steal a Brainrot</li><li>Steam</li><li>Summon Heroes</li>
+      <li>Survive Lava for Brainrots</li><li>Swing Obby for Brainrots</li><li>Tap Simulator</li><li>Team Fortress 2</li>
+      <li>The Forge</li><li>Tips Jar</li><li>Twitch Drops</li><li>TYPE://SOUL</li><li>Universal Tower Defense</li>
+      <li>Volleyball Legends</li><li>War Tycoon</li><li>Warframe</li><li>Wizard Alchemy</li><li>World of Warcraft</li>
+      <li>WoW Classic</li><li>WoW Mists of Pandaria</li>
+    </ul>
+  </div>
+
+  <!-- BOOSTING PANEL -->
+  <div id="boosting" class="category-panel">
+    <h2>⚡ Rank / Level / MMR Boosting</h2>
+    <ul class="game-list">
+      <li>Anime Vanguards</li><li>Apex Legends</li><li>Arc Raiders</li><li>Arena Breakout</li>
+      <li>Arena Breakout: Infinite</li><li>Battlefield</li><li>Black Desert Online</li><li>Blox Fruits</li>
+      <li>Brawl Stars</li><li>Call of Duty</li><li>Clash of Clans</li><li>Clash Royale</li><li>Counter-Strike 2</li>
+      <li>Dead By Daylight</li><li>Deadlock</li><li>Delta Force</li><li>Destiny 2</li><li>Diablo 4</li>
+      <li>DonutSMP</li><li>Dota 2</li><li>EA Sports FC</li><li>Escape from Tarkov</li><li>Fisch</li>
+      <li>Fortnite</li><li>Genshin Impact</li><li>League of Legends</li><li>League of Legends: Wild Rift</li>
+      <li>Marvel Rivals</li><li>Minecraft</li><li>Mobile Legends</li><li>New World</li><li>Old School RuneScape</li>
+      <li>Overwatch</li><li>Path of Exile</li><li>Path of Exile 2</li><li>Pokemon Go</li>
+      <li>Rainbow Six Siege X</li><li>Roblox</li><li>Rocket League</li><li>RuneScape 3</li><li>Rust</li>
+      <li>Teamfight Tactics</li><li>The Division 2</li><li>The First Descendant</li><li>The Forge</li>
+      <li>Throne and Liberty</li><li>Valorant</li><li>War Thunder</li><li>Warframe</li><li>Where Winds Meet</li>
+      <li>World of Warcraft</li><li>WoW Classic</li><li>WoW Mists of Pandaria</li>
+    </ul>
+  </div>
+
+  <!-- GIFT CARDS PANEL -->
+  <div id="giftcards" class="category-panel">
+    <h2>🎁 Gift Cards & Subscriptions</h2>
+    <ul class="game-list">
+      <li>Amazon Gift Cards</li><li>Apple Gift Cards</li><li>Blizzard Gift Cards</li><li>CD Keys</li>
+      <li>Discord Nitro</li><li>ExitLag Gift Cards</li><li>Fortnite Gift Cards</li><li>Garena Free Fire Gift Cards</li>
+      <li>Google Play Gift Cards</li><li>League of Legends Gift Cards</li><li>Netflix Gift Cards</li>
+      <li>Nintendo Gift Cards</li><li>PlayStation Gift Card</li><li>PUBG Mobile Gift Cards</li><li>Razer Gold</li>
+      <li>Roblox Gift Cards</li><li>Runescape Membership</li><li>Steam Game Accounts</li><li>Steam Gift Cards</li>
+      <li>Valorant Gift Cards</li><li>Xbox Gift Cards</li>
+    </ul>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <div class="contact-section">
+    <h3>📢 How to order</h3>
+    <p>Click any category above → browse available games → contact us directly</p>
+    <div class="contact-buttons">
+      <a href="https://discord.gg/YOURINVITE" target="_blank" class="contact-link">💬 Discord</a>
+      <a href="https://t.me/YOURTELEGRAM" target="_blank" class="contact-link">📱 Telegram</a>
+      <a href="mailto:boost@yourbusiness.com" class="contact-link">✉️ Email</a>
+    </div>
+    <p style="margin-top: 1rem; font-size: 0.85rem;">✅ We offer the fastest delivery &amp; 24/7 support. All transactions are done via DM.</p>
+  </div>
+
+  <footer>
+    © 2026 BoostHub — service catalog only. Contact us to place an order.
+  </footer>
+</div>
+
+<script>
+  // Tab switching logic
+  const btns = document.querySelectorAll('.cat-btn');
+  const panels = document.querySelectorAll('.category-panel');
+
+  function showCategory(categoryId) {
+    panels.forEach(panel => panel.classList.remove('active'));
+    const target = document.getElementById(categoryId);
+    if (target) target.classList.add('active');
+  }
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cat = btn.getAttribute('data-cat');
+      showCategory(cat);
+      // update active button style
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // show first category by default
+  showCategory('currency');
+  btns[0].classList.add('active');
+</script>
+</body>
+</html>
